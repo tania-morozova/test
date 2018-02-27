@@ -1,0 +1,68 @@
+\documentclass[a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage[a4paper, left = 2.5cm, right = 1cm, top = 2cm, bottom = 2cm]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+\linespread{1.58}
+
+\theoremstyle{plain}
+\newtheorem{sthm}{Теорема}
+\newtheorem{slemm}{Лемма}
+
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\E}{\mathrm{E}}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+\renewcommand{\epsilon}{\varepsilon}
+
+\begin{document}
+
+
+\begin{sthm}[Критерий Коши для равномерной сходимости интеграла, зависящего от параметра]
+
+$I(y)=\int\limits_a^\infty f(x,y)dx $ сходится равномерно на Y $\Leftrightarrow$
+
+$\Leftrightarrow \forall\epsilon>0\ \exists A(\epsilon)\ge a:\ \forall R_1, R_2\ge A(\epsilon),\ \forall y\in Y\ \left|\int\limits_{R_1}^{R_2} f(x,y)dx\right|<\epsilon$.
+\end{sthm}
+\bigskip
+\begin{sthm}[Куранта-Фишера]
+
+Для собственных значений самосопряженного оператора A справедливо представление
+$$
+\lambda_k=\max_{L_k} \min_{\|{x}\|=1,\ x \in L_k} (Ax,x),
+$$
+где максимум берется по всевозможным $k$-мерным подпространствам $L_k$ пространства $V$.
+\end{sthm}
+\bigskip
+\begin{slemm}[Грануолла-Беллмана]
+
+Если непрерывная функция $Z(t)$ удовлетворяет условию при $t \ge t_0$
+$$
+0 \le Z(t) \le k\int\limits_{t_0}^t Z(\tau)d\tau+g(t);\ k=const,
+$$
+то выполняется оценка
+$$
+0 \le Z(t) \le k \int\limits_{t_0}^t g(\tau)e^{k(t-\tau)}d\tau + g(t).
+$$
+\end{slemm}
+\bigskip
+\begin{sthm}[ЗБЧ в форме Чебышева]
+
+Пусть $X_1, X_2,\ldots, X_n$ --- независимые случайные величины и дисперсия каждой из них существует и ограничена сверху некоторой константой: $\forall i: 1 \le i \le n$ $\exists \D X_i \le C$. Тогда
+$$
+\forall \epsilon >0 \ \mathrm{P}\left(\left|\dfrac{X_1+\ldots+X_n}{n}-\dfrac{\E X_1+\ldots+\E X_n}{n}\right|<\epsilon\right)\xrightarrow[n\to\infty]{}1.
+$$
+\end{sthm}
+\bigskip
+\begin{sthm}[Пойя]
+$$
+\Phi(t)=P_G(Q(t), Q(t^2),\ldots, Q(t^n)),
+$$
+где $n=|G|$, $P_G(t_1, t_2, \ldots, t_n)$ --- цикловой индекс группы $G$, а $Q(t^2)$ подставляется в $P_G$ на место переменной $t_k$ ($k=1, 2,\ldots, n$).
+\end{sthm}
+\end{document}

@@ -1,0 +1,1455 @@
+\documentclass[a4paper,12pt]{scrartcl}
+
+\usepackage[warn]{mathtext}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage[integrals]{wasysym}
+\usepackage[english,russian]{babel}
+\usepackage{indentfirst}
+
+\oddsidemargin=0cm
+\evensidemargin=0cm
+\topmargin=0cm
+%Вся власть тангенсу!
+\DeclareMathOperator{\bbr}{\mathbb{R}}
+\DeclareMathOperator{\bbn}{\mathbb{N}}
+\DeclareMathOperator{\bbc}{\mathbb{C}}
+\DeclareMathOperator{\stick}{\biggl|}
+\newcommand{\conv}{\mathop{\mathrm{conv}}}
+\newcommand{\dom}{\mathop{\mathrm{dom}}}
+
+\newcommand{\Argmax}{\mathop{\mathrm{Argmax}}}
+%ТВИМС
+\newcommand{\E}{\mathbf{E}}
+\newcommand{\D}{\mathbf{D}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\Prb}{\mathbf{P}}
+\newcommand{\res}{\text{res}}
+%Теория поля
+\newcommand{\diver}{\mathop{\mathrm{div}}}
+\newcommand{\grad}{\mathop{\mathrm{grad}}}
+\newcommand{\rotor}{\mathop{\mathrm{rot}}}
+\newcommand{\sgn}{\mathop{\mathrm{sgn}}}
+%Пространства
+\DeclareMathOperator{\tr}{tr}
+\newcommand{\scalar}[2]{\left<#1,#2\right>}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+%opening
+\title{Математические формулы и формулировки}
+\author{}
+\date{Осень 2008 --- зима 2011}
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\emph{Версия 6.128}
+\end{abstract}
+
+\begin{scriptsize}\tableofcontents\end{scriptsize}
+
+\section{Комбинаторика}
+\begin{description}
+\item[Перестановки.] Совокупность $n$ объектов можно переставить $n!$ различными способами.
+\item[Упорядоченная выборка.] Из совокупности $n$ объектов можно выбрать упорядоченную последовательность из $r$ элементов $A^{n,r} = n(n-1)(n-2)\ldots(n-r+1)$ различными способами.
+\item[Неупорядоченная выборка.] Из совокупности $n$ объектов можно выбрать неупорядоченную последовательность из $k$ элементов $C_{n}^{k} = \dfrac{n!}{k!(n-k)!}$ способами.\footnote{Числа $C_{n}^{k}$ также называются биномиальными коэффициентами.}
+\item[Неупорядоченные выборки.] Пусть положительные числа $r_1,r_2,\ldots,r_k$ таковы, что их сумма равна $n$; тогда из группы $n$ элементов можно выбрать $k$ групп так, что в $i$-й группе $r_i$ элементов, $P^{n}_{r_1,r_2,\ldots,r_k} = \dfrac{n!}{r_1!r_2!\ldots r_n!}$ способами.\footnote{Числа $P^{n}_{r_1,r_2,\ldots,r_k}$ также называются полиномиальными коэффициентами.}
+\item[Теорема ван дер Вардена.] Для любого натурального $n\in \bbn$ существует $N\in\bbn$, такое, что в любом из разбиений множества $\{1,2,\ldots,N\}$ на два подмножества в одном из них найдется арифметическая прогрессия длинной $n$.
+\end{description}
+
+\section{Тригонометрия}
+\begin{multicols}{2}
+\begin{enumerate}
+\item $ \cos(\alpha \pm \beta) = \cos(\alpha)\cos(\beta)\mp \sin(\alpha)\sin(\beta)$
+\item $ \sin(\alpha \pm \beta) = \sin(\alpha)\cos(\beta)\pm\sin(\beta)\cos(\alpha)$
+\item $ \tg(\alpha \pm \beta) = \cfrac{\tg(\alpha) \pm tg(\beta)}{1 \mp \tg(\alpha)\tg(\beta)}$
+\item $ \ctg(\alpha \pm \beta) = \cfrac{\ctg(\alpha)\ctg(\beta) \mp 1}{\ctg(\alpha) \pm  \ctg(\beta)}$
+
+\item $ \sin(2 \alpha) = 2 \sin(\alpha)\cos(\alpha)$
+\item $ \cos(2\alpha) = \cos^{2}(\alpha) - \sin^{2}(\alpha)$
+\item $ \tg(2\alpha) = \cfrac{2\tg(\alpha)}{1 -\tg^{2}(\alpha)}$
+\item $ \ctg(2\alpha) = \cfrac{\ctg^{2}(\alpha) - 1}{2\ctg(\alpha)}$
+
+\item $ \sin(3\alpha) = 3\sin(\alpha) - 4\sin^{3}(\alpha)$
+\item $ \cos(3\alpha) = 4\cos^{3}(\alpha) - 3\cos(\alpha)$
+
+\item $ \sin(x) + \sin(2x) + \ldots +\sin(nx) = \cfrac{\cos(x/2)-\cos(x(n+1/2))}{2\sin(x/2)}$
+\item $ \cos(x) + \cos(2x) + \ldots +\cos(nx) = \cfrac{\sin(x(n+1/2))-\sin(x/2)}{2\sin(x/2)}$
+
+\item $ \cos^{2}(\alpha) = \cfrac{\cos(2\alpha)+1}{2}$
+\item $ \sin^{2}(\alpha) = \cfrac{1 - \cos(2\alpha)}{2}$
+
+\item $ \sin(\alpha) \pm \sin(\beta) = 2\sin(\frac{\alpha \pm \beta}{2})\cos(\frac{\alpha \mp \beta}{2})$
+\item $ \cos(\alpha) + \cos(\beta) = 2\cos(\frac{\alpha + \beta}{2})\cos(\frac{\alpha - \beta}{2})$
+\item $ \cos(\alpha) - \cos(\beta) = 2\sin(\frac{\alpha + \beta}{2})\sin(\frac{\beta - \alpha}{2})$
+\item $ \tg(\alpha) \pm \tg(\beta) = \cfrac{\sin(\alpha \pm \beta)}{\cos(\alpha)\cos(\beta)} $
+\item $ \ctg(\alpha) \pm \ctg(\beta) = \cfrac{\sin(\beta \pm \alpha)}{\sin(\alpha)\sin(\beta)} $
+
+\item $ \sin(\alpha)\cos(\beta) = \frac{1}{2}(\sin(\alpha + \beta) + \sin(\alpha - ~\beta))$
+\item $ \cos(\alpha)\cos(\beta) = \frac{1}{2}(\cos(\alpha + \beta) + \cos(\alpha - ~\beta))$
+\item $ \sin(\alpha)\sin(\beta) = \frac{1}{2}(\cos(\alpha - \beta) - \cos(\alpha + ~\beta))$
+
+\item $ \sin(\alpha) = \cfrac{2\tg(\frac{\alpha}{2})}{1 + \tg^{2}(\frac{\alpha}{2})}$
+\item $ \cos(\alpha) = \cfrac{1 - \tg^{2}(\frac{\alpha}{2})}{1 + \tg^{2}(\frac{\alpha}{2})}$
+
+Две последние формулы так же называются \emph{формулами универсальной тригонометрической подстановки}.
+ \item $\arcsin(x) + \arccos(x) = \frac{\pi}{2} \ ,\forall x \in [-1,1]$
+ \item $\text{arctg}(x) + \text{arcctg}(x) = \frac{\pi}{2} $
+
+\end{enumerate}
+\end{multicols}
+
+\section{Числовые соотношения и неравенства}
+
+В этом разделе числа $n$ и $k$ являются натуральными.
+
+\begin{enumerate}
+\item $1+2+3+\ldots\ n = \dfrac{n(n+1)}{2}$
+\item $1^2 + 2^2 + 3^2 + \ldots + n^2 = \dfrac{n(n+1)(2n+1)}{6}$
+\item $1^3 + 2^3 + 3^3 +\ldots + n^3 = (1+2+\ldots +n)^2 $
+\item \emph{(Бином Ньютона)} $(a+b)^n = \sum\limits_{k=0}^{n}C^{k}_{n}a^{k}b^{n-k}$, где $C_{n}^{k} = \dfrac{n!}{k!(n-k)!}$
+
+\item \emph{(Неравенство Бернулли)}Если числа $x_1,x_2,\ldots,x_n$, большие -1,  одного знака, то $(1 + x_1)(1+x_2)\cdots(1+x_n) \geqslant 1+x_1+x_2+\ldots+x_n $
+\item $(1 + x)^n \geqslant 1+nx$ при $x > 0$
+\item $ n! < \dfrac{(n+1)^n}{2}$ при $n > 1$
+\item $ (2!)(4!)\cdots(2n)! > [(n+1)!]^n$ при $n \geqslant 1$
+\item $ n^{n+1} > (n + 1)^n$ при $n > 1$
+\item $2^n > n^3$ при $n \geqslant 10$ 
+\item $\left(\dfrac{n}{e}\right)^n < n! < e\left(\dfrac{n}{2}\right)^n$
+\item $\prod\limits_{i=1}^{m}\sin(x_i)\leqslant \sin^m\left(\frac{\sum_{i=1}^{m}x_i}{m}\right)$
+\item \emph{(Тождество Абеля)} Пусть даны две последовательности $\{a_n\}$ и $\{b_n\}$,  $S_n = a_1 + a_2 +\ldots+a_n$ и $p$ - произвольное натуральное число. Тогда $\sum\limits_{k =n+1}^{n+p}a_kb_k = \sum\limits_{k=n+1}^{n+p-1}S_k(b_k-b_{k+1}) + S_{n+p}b_{n+p} - S_nb_{n+1}$. (При $p=1$ выражение под знаком суммы в правой части равенства отсутсвует.)
+
+В последующих неравенствах $x_1,x_2,\ldots,x_n,y_1,y_2,\ldots,y_n$ - произволные комплексные числа.
+
+\item \emph{(Неравенство Коши-Буняковского)} $\left(\sum\limits_{i=1}^{n}x_{i}y_{i}\right)^2 \leqslant \left(\sum\limits_{i=1}^{n}x_{i}^{2}\right)\left(\sum\limits_{i=1}^{n}y_{i}^{2}\right)$
+\item \emph{(Неравенство Минковского)} Пусть $p \geqslant 1$. Тогда $\left(\sum\limits_{i=1}^{n}|x_i + y_i |^p \right)^{1/p} \leqslant \left(\sum\limits_{i=1}^{n}|x_i|^p \right)^{1/p} + \left(\sum\limits_{i=1}^{n}|y_i|{^p} \right)^{1/p}  $
+\item \emph{(Теорема Штольца.)} Если $y_n\nearrow\infty$, то последовательности $x_n / y_n$ и $(x_-x_{n-1})/(y_{n}-y_{n-1})$ имеют один предел (или расходятся).
+
+Пусть $p,q > 0, \dfrac{1}{p}+\dfrac{1}{q} = 1$
+
+\item \emph{(Неравенство Юнга)} Если $a,b \geqslant 0$, то $ab \leqslant \frac{a^p}{p} + \frac{b^q}{q}$
+\item \emph{(Неравенство Гёльдера)} $\left|\sum\limits_{i=1}^{n}x_i y_i \right| \leqslant \left(\sum\limits_{i=1}^{n}|x_i|^p \right)^{1/p}  \left(\sum\limits_{i=1}^{n}|y_i|^p \right)^{1/q}  $
+\end{enumerate}
+
+\section{Аналитическая геометрия}
+\subsection{Некоторые формулы}
+\begin{description}
+ \item [Уравнение прямой, проходящей через точки $(x_1,y_1),(x_2,y_2)$:] $\dfrac{x-x_1}{x_2-x_1} = \dfrac{y-y_1}{x_2-x_1}$
+
+Пусть $\mathbf{i,j,k}$ - орты прямоугольной декартовой системы кординат.
+
+\item [Векторное произведение векторов.]
+\begin{enumerate}
+ \item $$(x_1,y_1,z_1)\times(x_2,y_2,z_2)=\begin{vmatrix} 
+   \mathbf{i} & \mathbf{j} & \mathbf{k} \\ x_1 & y_1 & z_1 \\ x_2 & y_2 & z_2
+  \end{vmatrix}
+ $$
+\item $[[a,b],c] = (a,c)b - (b,c)a$;
+\item $[a,[b,c]] = (a,c)b - (a,b)c$.
+\end{enumerate}
+
+\item [Смешанное произведение векторов.] 
+$$((x_1,y_1,z_1),(x_2,y_2,z_2),(x_3,y_3,z_3))=\begin{vmatrix} 
+   x_1 & x_2 & x_3 \\ y_1 & y_2 & y_3 \\ z_1 & z_2 & z_3
+  \end{vmatrix}
+ $$
+\item [Рассстояние от точки до прямой.] Пусть $l: Ax+By+C =0, M = (x_0,y_0) \notin l.$ Тогда $\rho(M,l) = \dfrac{|Ax_0 + By_0 +C|}{\sqrt{A^2 + B^2}}$.
+\item [Расстояние от точки до плоскости.] Пусть $\pi: Ax+By+Cz +D =0, M = (x_0,y_0,z_0) \notin \pi. $ Тогда $\rho(M,l) = \dfrac{|Ax_0 + By_0 + Cz_0 + D|}{\sqrt{A^2 + B^2 + С^2}}$.
+\end{description}
+\subsection{Канонические уравнения кривых и поверхностей второго порядка}
+\begin{multicols}{2}
+\begin{description}
+\item [Эллипс.] $\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1$
+\item [Гипербола.] $\dfrac{x^2}{a^2} - \dfrac{y^2}{b^2} = 1$
+\item [Парабола.] $y^2 = 2px, p \geqslant 0$
+\item [Эллипсоид.] $\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} + \dfrac{z^2}{c^2} = 1$
+\end{description}
+\end{multicols}
+\begin{description}
+\item [Однополостный гиперболоид.] $\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} - \dfrac{z^2}{c^2} = 1$
+\item [Двуполостный гиперболоид.] $\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} - \dfrac{z^2}{c^2} = -1$
+\item [Эллиптический конус.] $\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} - \dfrac{z^2}{c^2} = 0$
+\item [Эллиптический параболоид.] $\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = z$
+\item [Гиперболический параболоид.] $\dfrac{x^2}{a^2} - \dfrac{y^2}{b^2} = z$
+\end{description}
+\subsection{Вычисление касательных и нормалей}
+\begin{tabular}{|c|c|c|}
+{\bfseries Форма задания} & \bfseries{Касательная в $(x_0,y_0,z_0)$} &{\bfseries Нормаль в $(x_0,y_0,z_0)$} \\
+$ y = f(x)$ & $y - y_0 = f'(x_0)(x-x_0)$ & $y - y_0 = \dfrac{1}{f'(x_0)}(x-x_0)$ \\
+$ F(x,y) = 0$ & $y - y_0 = \dfrac{F'_x(x_0,y_0)}{F'_y(x_0,y_0)}(x-x_0)$ & $y - y_0 = \dfrac{F'_y(x_0,y_0)}{F'_x(x_0,y_0)}(x-x_0)$ \\
+$ x=x(t),y=y(t)$ & $\dfrac{x-x_0}{dx} = \dfrac{y-y_0}{dy}$&$\dfrac{x-x_0}{dy} = \dfrac{y-y_0}{dx}$\\
+$x =x (t), y = y(t), z= z(t)$ & $\dfrac{x-x_0}{x'} = \dfrac{y-y_0}{y'} = \ \dfrac{z-z_0}{z'} $ & $[\pm x',\pm y',\pm z']$
+\end{tabular}
+Последнее уравнение - уравнение нормали в точке; знак выбирается в зависимоcти от направления. Что бы получить единичную нормаль, надо эту нормаль разделить на ее длинну (т.е. на корень квадратный из суммы ее компонент).
+
+{\emph{Вычисление касательной плоскости и нормали к поверхности}}. Если поверхность задана как $F(x,y,z) = 0$, то касательная плоскость в точке $(x_0,y_0,z_0)$ описывается уравнением $F'_x(x_0,y_0,z_0)(x-x_0) + F'_y(x_0,y_0,z_0)(y-y_0) + F'_z(x_0,y_0,z_0)(z-z_0) = 0$, а направляющие косинусы нормали определяются так: $\cos(\alpha) = \dfrac{F'_x}{\pm \sqrt{(F'_x) ^2 +(F'_y)^2+ (F'_z)^2}}$, $\cos(\beta) = \dfrac{F'_y}{\pm \sqrt{(F'_x) ^2 +(F'_y)^2+ (F'_z)^2}}$, $\cos(\gamma) = \dfrac{F'_z}{\pm \sqrt{(F'_x) ^2 +(F'_y)^2+ (F'_z)^2}}$
+
+\section{Правила дифференцирования}
+\subsection{Таблица производных}
+\begin{enumerate}
+\begin{multicols}{2}
+\item $c' = 0$ ($c$ - константа)
+\item $(a^x)' = a^x\ln(a)$
+\item $(\log_a(x))' = \dfrac{1}{x\ln(a)}$
+\item $(x^a)' = ax^{a-1}$
+\item $(\sin(x))' = \cos(x)$
+\item $(\cos(x))' = -\sin(x)$
+\item $(\tg(x))' = \dfrac{1}{\cos^2(x)}$
+\item $(\ctg(x))' = -\dfrac{1}{\sin^2(x)}$
+\item $(\arcsin(x))'= \dfrac{1}{\sqrt{1 - x^2}}$
+\item $(\arccos(x))'= -\dfrac{1}{\sqrt{1-x^2}}$
+\item $(\arctg(x))' = \dfrac{1}{1+x^2} $
+\item $(\arcctg(x))' = -\dfrac{1}{1+x^2}$
+\item $(\sh(x))' = \ch(x)$
+\item $(\ch(x))' = \sh(x)$
+\item $(\th(x))' = \dfrac{1}{\ch^x(x)}$
+
+
+\item $(x^a)^{(n)} = a(a-1)\cdots(a-n+1)x^{a-n}$
+\item $(a^x)^{(n)} = a^x\ln^n(a)$
+\item $(\sin(x))^{(n)} = \sin\left(x + \dfrac{\pi n}{2}\right)$
+\item $(\cos(x))^{(n)} = \cos\left(x + \dfrac{\pi n}{2}\right)$
+\item $(\ln(x))^{(n)} = \dfrac{(-1)^{n-1}(n-1)!}{x^n}$
+\item $(\arctg(x))^{(n)} = \dfrac{(n-1)!}{(x^2 +1)^{n/2}}\sin(n(\arctg(x) + \pi/2))$
+\end{multicols}
+\end{enumerate}
+\subsection{Векторное и матричное дифференцирование}
+\begin{multicols}{2}
+В этом пункте $x,b\in\bbr^n,\ A,B\in\bbr^{n\times n}$.
+\begin{enumerate}
+\item $\nabla_x(x^TAx + b^Tx) = (A+A^T)x+B$ 
+\item $\nabla_xf(Ax) = A^T\nabla f(Ax)$
+\item $\nabla_x^2f(Ax) = A^T\nabla^2 f(Ax)A$
+\item $\nabla_A(\tr(AB)) = B^T$
+\item $\nabla_{A^T}f(A) = (\nabla_A f(A))^T$
+\item $\nabla_A\tr(ABA^TC) = CAB+C^TAb^T$
+\end{enumerate}
+\end{multicols}
+\begin{description}
+ \item[Теорема Лиувилля.] $(\det A(t))' = \det A(t)\tr \left( A'(t)A^{-1}\right)$.
+\end{description}
+
+\section{Теоремы дифференциального исчисления}
+\subsection{Функции одной переменной}
+\begin{description}
+\item[Формула Лейбница.] $(U(x)V(x))^{(n)} = \sum\limits_{k=0}^{n}C_{n}^{k}U(x)^{(k)}V(x)^{(n-k)}$
+\item[Теорема Ролля.] Если функция $f(x)$ непрерывна на $[a,b]$, дифференцируема на $(a,b)$ и $f(a) = f(b)$, то существует $\xi\in (a,b): f'(\xi) =0$.
+\item[Теорема Лагранжа.] Если функция $f(x)$ непрерывна на $[a,b]$, дифференцируема на $(a,b)$, то существует $\xi\in (a,b): f'(\xi)(b-a) = f(b) - f(a)$.
+\item[Теорема Коши.]Если функции $f(x)$ и $g(x)$ непрерывны на $[a,b]$, дифференцируемы на $(a,b)$, и $g'(x) \neq 0 \forall x\in[a,b]$, то существует $\xi\in (a,b): \dfrac{f'(\xi)}{g'(\xi)}= \dfrac{f(b) - f(a)}{g(b)-g(a)}$.
+\item[Теорема Дарбу.] Пусть $f(x)$ дифференцируема на $(a,b),\ (c,d)\subset(a,b),\ f(c)=\alpha,\ f(d)=\beta$. Тогда для любого $\gamma$ между $\alpha$ и $\beta$ существует $\xi\in(c,d):\ f'(\xi) = \gamma$.
+\end{description}
+\subsection{Функции нескольких переменных}
+
+Рассмотрим дифференцируемую функцию $f(x_1,x_2,...,x_n) = f(M)$.
+
+\begin{description}
+\item[Теорема Юнга.] Пусть функция $f(M)$ $k$ дифференцируема в точке $M$ и $k-1$ - в некоторой ее окрестности. Тогда значения любых смешанных производных порядка $k$ не зависят от порядка дифференцирования.
+\item[Теорема Шварца.] Пусть $M=(x,y),\ f'_x,\ f'_y,\ f''_{xy},\ f''_{yx}$ существуют в некоторой окрестности точки $M_0$, причем $f''_{xy}$ и $ f''_{yx}$ непрерывны в точке $M_0$. Тогда $f''_{xy} = f''_{yx}$.
+\item[Теорема Эйлера.] Пусть $G$ --- область в $\bbr^n,\ f$ --- дифференцируемая в окрестности любой точки из $G$ однородная функция степени $n$. Тогда в $G$ верно: $\sum\limits_{i=1}^{n}x_i\frac{\partial f(x)}{\partial x_i} = nf(x)$.
+\item[Теорема Радамахера]. Липшецева функция на компакте в $\bbr^n$ почти всюду дифференцируема на нем. 
+ \item[Необходимое условие экстремума.] Экстремум достигается только в тех точках $M_0$, где $df(M_0) = 0$.
+ \item[Достаточное условие экстремума.] Если при любых значениях $dx_1,dx_2,...,dx_n$, таких, что $\sum\limits_{k=1}^{n}|dx_k| \neq 0$, $df(M_0) = 0$, и $d^2f(m_0) < 0$ $(d^2f(M_0) > 0)$, то $M_0$ - точка максимума (минимума) функции $f(M)$.
+
+В частном случае, если $f(M) = f(x,y)$, и $df(M_0)=0$, можно рассмотреть $D = AC-B^2$, где $A = \frac{\partial^2 f }{\partial x^2},\ B = \frac{\partial^2 f }{\partial x \partial y}, C = \frac{\partial^2 f }{\partial y^2}\ $. Тогда в $M_0$
+\begin{enumerate}
+ \item максимум, если $D > 0,\ A < 0$ или $C<0$;
+ \item минимум, если $D > 0,\ A > 0$ или $C>0$;
+ \item нет экстремума, если $D < 0$.
+\end{enumerate}
+
+ \item[Условный экстремум.] Пусть необходимо найти экстремум $f(M),\ M=(x_1,...,x_n,y_1,...,y_m)$, при наличии условий $F_i(M) = 0,\ i=1,..,,m$. Пусть $L(M) = f(M) + \sum\limits_{k=1}^{m}\lambda_kF_k(M)$ (\textit{функция Лагранжа)}, где константы $\lambda_i$ выбирается так, что бы $\dfrac{\partial L}{\partial x_i}(M_0)= 0,\ \dfrac{\partial L}{\partial y_j}(M_0)= 0,\ \dfrac{\partial L}{\partial \lambda_k}(M_0)= 0$, где $M_0$ - точка, исследуемая на условный экстремум.Тогда, если $d^2L(M_0) > 0 \ (d^2L(M_0) < 0)$, то в точке $M_0$ достигается локальный минимум (максимум).
+\end{description}
+
+\section{Разложения и асимптотические формулы}
+\subsection{Ряд Тейлора}
+\emph{Одномерный случай.} Пусть функция $f(x)$ $n+1$ раз дифференцируема в окрестности точки $a$. Тогда для любого $x$ из этой окрестности и для любого $p > 0$ в ней найдется такая точка $\xi$, что $$f(x) = f(a) + \dfrac{f'(a)(x-a)}{1!} + \dfrac{f''(a)(x-a)^2}{2!}+ \cdots + \dfrac{f^{(n)}(a)(x-a)^n}{n!} + R_{n+1}(x),$$ где $R_{n+1}$ может быть записан как:
+\begin{description}
+ \item[Форма Шлемильха-Роша.] $R_{n+1}(x) = \dfrac{(x-a)^p}{(x-\xi)^p}\dfrac{(x-\xi)^{n+1}}{n!p}f^{(n+1)}(\xi)$.
+ \item[Форма Лагранжа.] $R_{n+1}(x) = \dfrac{(x-a)^{n+1}}{(n+1)!}f^{(n+1)}(a + \theta_1(x-a)), \theta_1 \in (0,1).$
+\item[Форма Коши.] $R_{n+1}(x) = \dfrac{(x-a)^{n+1}(1-\theta_2)^n}{(n)!}f^{(n+1)}(a + \theta_2(x-a)), \theta_2 \in (0,1).$
+\item[Форма Пеано.] Пусть функция $n$ раз дифференцируема в токе $a$ и $n-1$ раз - в ее окрестности. Тогда $R_{n+1}(x) = o((x-a)^n), x\to a$.
+\item[Интегральная форма.] Пусть функция $n+1$ раз дифференцируема в некоторой окрестности точки $a$. Тогда $R_{n+1} = \dfrac{1}{n!}\int\limits_{a}^{x}f^{(n+1)}(t)(x-t)^ndt.$
+\end{description}
+\emph{Многомерный случай.} Пусть функция векторного аргумента $f(x)$ $k+1$ раз дифференцируема в окрестности точки $x^0 = (x^0_1,x^0_2,\ldots,x^0_n)$, тогда для любой точки $x = (x^0_1 + \Delta x_1,x^0_2 +\Delta x_2,\ldots,x^0_n + \Delta x_n)$, лежащей в этой окрестности, найдется такая точка $x^1$ оттуда же, что:
+$$f(x) = f(x^0) + \dfrac{1}{1!}df|_{x^0} + \dfrac{1}{2!}d^2f|_{x^0} + \ldots + \dfrac{1}{k!}d^kf|_{x^0} + \dfrac{1}{(k+1)!}d^{k+1}f|_{x^1},$$ где все дифференциалы отвечают приращениям аргументов $\Delta x_1, \Delta x_2, \ldots, \Delta x_n$.
+Если функция $k-1$ раз дифференцируема в окрестности точки, и $k$ раз - в самой точке, то верно, что
+$$f(x) = f(x^0) + \dfrac{1}{1!}df|_{x^0} + \dfrac{1}{2!}d^2f|_{x^0} + \ldots + \dfrac{1}{k!}d^kf|_{x^0} + o(\rho^k(x^0,x)),\rho \to 0.$$
+\subsection{Разложения в ряд Тейлора}
+В этом разделе под $R_{n}(x)$ понимается остаточный член ряда Тейлора в виде Коши, Лагранжа, Пеано или Шлемильха-Роша.
+
+\begin{enumerate}
+\item $e^x = 1 + x +\dfrac{x^2}{2!} + \dfrac{x^3}{3!} + \ldots + \dfrac{x^n}{n!} + R_{n+1}(x)$
+\item $\sin(x) = x - \dfrac{x^3}{3!} + \dfrac{x^5}{5!} +\ldots + (-1)^n\dfrac{x^{2n+1}}{(2n+1)!} + R_{2n +3}(x)$
+\item $\cos(x) = 1 - \dfrac{x^2}{2!} + \dfrac{x^4}{4!} +\ldots + (-1)^n\dfrac{x^{2n}}{(2n)!} + R_{2n +2}(x)$
+\item $\ln(1+x) = x - \dfrac{x^2}{2} + \dfrac{x^3}{3}+\ldots + (-1)^{n-1}\dfrac{x^n}{n} + R_{n+1}(x)$
+\item $(1+x)^a = 1+ax +\dfrac{a(a-1)}{2!}x^2 + \ldots + \dfrac{a(a-1)\ldots(a-n+1)}{n!}x^n +R_{n+1}(x)$
+\item $ \arctg(x) = x - \dfrac{x^3}{3} + \dfrac{x^5}{5}+\ldots + (-1)^{n}\dfrac{x^{2n+1}}{2n+1} + R_{n+2}(x) $
+\end{enumerate}
+\subsection{Другие разложения}
+\begin{enumerate}
+\item \emph{(Формула Стирлинга)} $n! = \sqrt{2\pi n}\left(\dfrac{n}{e}\right)^n\left(1 +\dfrac{\omega}{\sqrt{n}}\right)$, где $ -1 \leqslant \omega \leqslant 1$. 
+\item $1 + \dfrac{1}{2} + \dfrac{1}{3} + \ldots + \dfrac{1}{n} = \ln(n) + C + \alpha_n$, где $C$ - постоянная Эйлера-Маскерони\footnote{Это загадочная константа, неизвестно даже, рациональна или иррациональна ли она по своей природе.}, равная 0.5177..., а $\lim\limits_{n\to\infty}\alpha_n = 0 $.
+\item $ \arcsin(x) = x +\sum\limits_{n=1}^{\infty}\dfrac{(2n-1)!!}{(2n)!!}\dfrac{x^{2x+1}}{2n+1}$
+\item $\sin(x) = x\prod\limits_{k=1}^{\infty}\left(1 - \dfrac{x^2}{k^2\pi^2}\right)$
+\item \emph{(Формула Валлиса)} $\dfrac{\pi}{2} = \prod\limits_{k=1}^{\infty}\dfrac{(2k)^2}{(2k-1)(2k+1)}$
+\item $\dfrac{\pi^2}{6} = \sum\limits_{n=1}^{\infty}\dfrac{1}{n^2}$
+\item $\dfrac{\pi}{4} = \sum\limits_{n=1}^{\infty}\dfrac{(-1)^n}{2n+1}$
+\end{enumerate}
+\section{Обыкновенные дифференциальные уравнения}
+Пусть $A(t)\in\bbr^n$. Фундаментальной матрицей $A(t)$ называется матрица $X(t,t_0)$, такая, что
+\begin{enumerate}
+ \item $\frac{dX}{dt} = AX$;
+ \item $X(t, t_0) = I$.
+\end{enumerate}
+Тогда решением задачи Коши $\dot{x} = A(t)x + f(t),\ x(t_0) = x_0$ будет
+$$
+x (t) = X(t,t_0)x_0 + \int\limits_{t_0}^t X(s,t_0)f(t)ds.
+$$
+Для матричного уравнения Рикатти,
+$$
+\dot{P} = A(t)P + PA^T(t) + M(t),\ P(t_0) = P_0,
+$$
+решением будет
+$$
+P(t) = X(t,t_0)\left(\int\limits_{t_0}^{t_1}X^{-1}(s,t_0)M(s)X^{-T}(s,t_0)ds \right)X^T(t,t_0) + X(t,t_0)P_0X^T(t,t_0).
+$$
+В неавтономном случае, величину $W(t) = \det X(t,t_))$ называют вронскианом системы. Справедлива формула Лиувилля:
+$$
+W(t) = \exp\left(\int\limits_{t_0}^t\tr A(s)\right)W(0). 
+$$
+В случае автономной матрицы $A(t\equiv A)$, фундаментальной матрицей является матричная экспонента:
+$$
+X(t,t_0) = e^{A(t-t_0)} \equiv \sum\limits_{n=0}^{\infty}\dfrac{1}{n!}(A(t-t_0))^n.
+$$
+Ее свойства:
+\begin{enumerate}
+ \item $e^{A+B} = e^{A}e^B$ тогда и только тогда, когда $A,B$ коммутируют ($AB=BA$).
+ \item $e^{A(t+s)}=e^{At}e^{As}$.
+ \item $\det e^A = e^{\tr A}$.
+\end{enumerate}
+\section{Таблица неопределенных интегралов}
+\begin{enumerate}
+\begin{multicols}{2}
+\item $\int{0\cdot dx} = C$
+\item $\int{x^{a}dx}= \begin{cases} \dfrac{x^{a+1}}{a+1}+C,&{a\neq-1} \\ \ln|x| +C,& a = -1 \end{cases} $
+\item $\int{a^{x}dx} = \dfrac{a^{x}}{\ln(a)} + C$
+\item $\int{\sin(x) dx} = -\cos(x) +C$
+\item $\int{\cos(x) dx} = \sin(x) +C$
+\item $\int{\dfrac{dx}{\cos^{2}{x}}} = \tg(x) + C$
+\item $\int{\dfrac{dx}{\sin^{2}{x}}} = -\ctg(x) +C$
+\item $\int{\dfrac{dx}{\sqrt{1-x^2}}} = \arcsin(x) +C$
+\item $\int{\dfrac{dx}{x^2 +1}} = \arctg(x) +C$
+\item $\int{\dfrac{dx}{\sqrt{x^2 \pm 1}}} = \ln|x+ \sqrt{x^2 \pm 1}| +C$
+\item $\int{\sh(x)dx} = \ch(x) + C$
+\item $\int{\ch(x)dx} = \sh(x) + C$
+\item $\int{\dfrac{dx}{\ch^2(x)}} = \th(x) + C$
+\item $\int{\dfrac{dx}{\sh^2(x)}} = -\cth(x) +C$
+\end{multicols}
+
+В последующих интегралах константа $a > 0$.
+
+\item $\int{\dfrac{dx}{x^2 + a^2}} = \frac{1}{a}\arctg(\frac{x}{a}) +C$
+\item $\int{\dfrac{dx}{x^2 - a^2}} = \frac{1}{2a}\ln\Bigl|\dfrac{x-a}{x+a}\Bigr|+C$
+\item $\int{\dfrac{dx}{\sqrt{x^2 \pm a^2}}} = \ln(x + \sqrt{x^2 \pm a^2}) + C$
+\item $\int{\dfrac{dx}{\sqrt{a^2 - x^2}}} = \arcsin(\frac{x}{a}) + C$
+\item $\int{\sqrt{a^2 - x^2}dx} = \frac{x}{2}\sqrt{a^2 - x^2} + \frac{a^2}{2}\arcsin(\frac{x}{a})$
+\item $\int{\sqrt{x^2 \pm a^2}dx} = \frac{x}{2}\sqrt{x^2 \pm a^2} \pm \frac{a^2}{2}\ln|x+ \sqrt{x^2 \pm a^2}| + C$
+\end{enumerate}
+
+\section{Методы взятия неопределенных интегралов}
+\subsection{Интегралы, сводимые к рациональным дробям}
+
+Под рациональной функцией $R(u,v)$ понимается дробь 
+$$\dfrac{a_{00} + a_{10}u + a_{01}v + a_{20}u^2 + a_{02}v^2 + \ldots + a_{k0}u^k + a_{0k}v^k}{b_{00} + b_{10}u + b_{01}v + b_{20}u^2 + b_{02}v^2 + \ldots + b_{k0}u^k + b_{0k}v^k}$$
+$(a_{ij},b_{ij}$- вещественные числа)
+\begin{enumerate} 
+ \item $\int R\left(x,\sqrt[m]{\dfrac{ax+b}{cx+d}}\right)dx$ ($m$ - натуральное, $a,b,c,d$ - вещественные). Подстановка $ t = \sqrt[m]{\dfrac{ax+b}{cx+d}}$
+\item \emph{(Подстановки Эйлера)}$\int R(x, \sqrt{ax^2 + bx +c})dx$
+\begin{enumerate}
+\item$a > 0$; подстановка $\sqrt{ax^2 + bx +c} = t \pm \sqrt{a}x$
+\item$c > 0$; подстановка $\sqrt{ax^2 + bx +c} = tx \pm \sqrt{c}$
+\item$b^2 - 4ac \geqslant 0$;$  ax^2 + bx +c = (x-x_1)(x-x_2)$; подстановка $\sqrt{ax^2 + bx +c} = t(x - x_1)$ (или $t(x - x_2)$)
+\end{enumerate}
+\end{enumerate}
+\subsection{Интегрирование дифференциальных биномов}
+Рассмотрим $\int x^m (a + bx^n)^pdx$, где $a,b$ - вещественные, $m,n,p$ -  рациональные.
+\begin{enumerate}
+\item $p$ - целое; подстановка $x = t^N$, где $N$ - общий знаменатель $m$ и $n$; 
+\item $\dfrac{m+1}{n}$ - целое; подстановка $a +bx^n = t^N$, где $N$ - знаменатель дроби $p$;
+\item $\dfrac{m+1}{n} +p$- целое; подстановка $ax^{-n}+b = t^N$ , где $N$ - знаменатель дроби $p$.
+
+{\bfseries Теорема Чебышева}. Если ни один из случаев (1),(2) или (3) не имеет место, то интеграл в элементарных функциях не вычисляется.
+\end{enumerate}
+\subsection{Интегрирование тригонометрических функций}
+\begin{enumerate}
+\item $\int\cos^m(x)\sin^n(x)dx$
+\begin{enumerate}
+\item $n$ - нечетное; подстановка $t = \cos(x) $
+\item $m$ - нечетное; подстановка $t = \sin(x) $
+\item $m \leqslant 0,n \leqslant0 $; $m+n$ - четное; подстановка $t = \tg(x)$
+\end{enumerate}
+\item $ \int R(\sin(x),\cos(x))dx$
+\begin{enumerate}
+\item $R(\sin(x),\cos(x)) = -R(-\sin(x),\cos(x))$; подстановка $t=\cos(x)$
+\item $R(\sin(x),-\cos(x)) = R(\sin(x),\cos(x))$; подстановка $t=\sin(x)$
+\item $R(\sin(x),\cos(x)) = -R(-\sin(x),-\cos(x))$; подстановка $t=\tg(x)$
+\end{enumerate}
+\end{enumerate}
+\section{Определенные интегралы (собственные)}
+\begin{description}
+\item[Критерий интегрируемости по Риману.] Ограниченная функция интегрируема по Риману на множестве $M$ тогда и только тогда, когда множество ее точек разрыва на $M$ имеет меру нуль по Лебегу.
+\item[Первая теорема о среднем.] Пусть $f(x)$ интегрируема на сегменте $[a,b]$, а $g(x)$ сохраняет на этом сегменте знак; тогда $\int\limits_{a}^{b}f(x)g(x)dx = \alpha\int\limits_{a}^{b}g(x)dx$, где $\inf\limits_{[a,b]}f(x) \leqslant \alpha \leqslant \sup\limits_{[a,b]}f(x)$
+\item[Вторая теорема о среднем.] Пусть $f(x)$ интегрируема и монотонна на сегменте $[a,b]$, а $g(x)$ интегрируема на нем; тогда $\exists \xi \in [a,b]$, т.ч. $$\int\limits_{a}^{b}f(x)g(x)dx =
+\begin{cases} f(a)\int\limits_{a}^{\xi}g(x)dx, &{f(x)\text{ не возрастает;}} \\ f(b)\int\limits_{\xi}^{b}g(x)dx, &{f(x)\text{ не убывает.}}
+\end{cases}  $$
+\item[Неравенство Гронуолла-Беллмана.] Пусть $f(t)\in C[a,b]$,$t_0 \in [a,b]$ и $0 \leqslant f(t) \leqslant c + d\left|\int\limits_{t_0}^{t}f(\tau)d\tau\right|$ , где $c,d > 0$. Тогда $f(x) \leqslant ce^{d|t-t_0|}$.
+\item[Дифференциальное неравенство Гронуолла-Беллмана.] Пусть $y(t)$- абсолютно-непрерывная функция, и $\dot{y}(t) \leqslant a(t)y(t)+b(t)$ для почти всех $t\in[t_0,t_1]$, где $a,b$ --- непрерывно-дифференцируемые, $\dot{a}(t)b(t) - a(t)\dot{b}{t}=0$, $0 <a_0 \leqslant |a(t)| < \infty\ \forall\ t\in[t_0,t_1]$. Тогда $\forall t\in[t_0,t_1]$:
+$$
+y(t) \leqslant \left(y(t_0) + \dfrac{b(t_0)}{a(t_0)}\right)\exp\left(\int\limits_{t_0}^{t_1}a(s)ds \right) - \dfrac{a(t)}{b(t)}.
+$$
+\item[Основная лемма вариационного исчесления.] Если $f(x)$ непрерывна на $[a,b]$, и для любой непрерывно-дифференцируемой функции $y(x)$, такой, что $y(a)=y(b)=0$, верно, что $\int\limits_a^bf(x)y(x)dx = 0$, то $f(x)\equiv 0$ на $[a,b]$.
+\end{description} 
+\section{Геометрические приложения определенных интегралов}
+\subsection{Площади криволинейных трапеций}
+\begin{enumerate}
+\item Площадь криволинейной трапеции, ограниченной графиком функции $y = f(x)$, осью абсцисс и прямыми $x = a$ и $x=b$, равна $\int\limits_{a}^{b}f(x)dx$.
+\item Если функция задана параметрически уравнениями $x=x(t)$ и $y=y(t)$, то означенная площадь, отвечающая изменению параметра от $t$ до $T$, равна $\int\limits_{t}^{T}x(t)y'(t)dt$.
+\item Площадь криволинейного сектора, ограниченного графиком функции $r = r(\varphi)$, прямыми $\varphi = \alpha$ и $\varphi = \beta$, равна $\dfrac{1}{2}\int\limits_{\alpha}^{\beta}r^2(\varphi)d\varphi$.
+
+ Если функция задана как $\varphi = \varphi (r)$, то означенная площадь будет равна $\dfrac{1}{2}\int\limits_{r_1}^{r_2}\dfrac{r^2}{r'(\varphi)}dr$
+\end{enumerate}
+\subsection{Длины дуг}
+В этом подразделе все пункты оформлены как (уравнения, задающие кривую); (формула рассчета длины кривой).
+\begin{enumerate}
+\item $x = x(t),y=y(t),t\in[t,T]; |L| = \int\limits_{t}^{T}\sqrt{(x')^2 + (y')^2}dt$
+\item $y = y(x), x\in[a,b]; |L| = \int\limits_{a}^{b}\sqrt{1 + (y'(x))^2}dt$
+\item $r = r(\varphi), \varphi\in[\alpha,\beta]; |L| = \int\limits_{\alpha}^{\beta}\sqrt{r(\varphi)^2 + (r'(\varphi))^2}dt$
+\item $ \varphi = \varphi(r), r\in[r_1,r_2]; |L| = \int\limits_{r_1}^{r_2}\sqrt{r^2 + (\varphi'(r))^2}\varphi'(r)dt$
+\end{enumerate}
+
+\subsection{Объемы тел вращения}
+Найдем объем тела вращения, полученного путем вращения криволинейной  трапеции (или криволнейного сектора) вокруг оси абсцисс (полярной оси).
+\begin{enumerate}
+\item Если трапеция задана как $y = y(x), x\in [a,b]$, то объем получившегося тела равен $\pi\int\limits_{a}^{b}y^2(x)dx$
+\item Если трапеция задана как $y = y(t), x = x(t), t\in[t,T]$,то объем получившегося тела равен $\pi\int\limits_{t}^{T}y^2(t)x'(t)dt$ 
+\item Если сектор задан как $r =r(\varphi), \varphi \in[\alpha, \beta]$, то объем получившегося тела равен $\dfrac{2\pi}{3}\int\limits_{\alpha}^{\beta}r^3(\varphi)\sin(\varphi)d\varphi$ 
+\end{enumerate}
+
+\subsection{Площади поверхностей}
+
+Найдем площадь цилиндрической поверхности тела, полученной вращением криволинейной трапеции (или криволинейного сектора) вокруг оси абцисс.
+
+\begin{enumerate}
+\item Если трапеция задана как $y = y(x), x\in [a,b]$, то площадь равна $2\pi\int\limits_{a}^{b}xy(x)dx.$
+\item Если сектор задан как $r =r(\varphi), \varphi \in[\alpha, \beta]$,то площадь равна $$2\pi\int\limits_{\alpha}^{\beta}|r\sin(\varphi)|\sqrt{(r(\varphi))^2 + (r'(\varphi))^2}d\varphi.$$
+\end{enumerate}
+
+\section{Несобственные интегралы}
+\subsection{Сходимость несобственных интегралов}
+Рассмотрим интегралы $\int\limits_{a}^{+\infty}{f(x)dx} $ (1) и $\int\limits_{a}^{+\infty}{g(x)dx}$ (2), где функции $f(x)$ и $g(x)$ кусочно-непрерывны на $[a,+\infty)$.
+\begin{description}
+ \item[Теорема сравнения.] Пусть $0 \leqslant f(x) \leqslant g(x)$ для $\forall x \in [a;+\infty)$. Тогда если (1) расходится, то (2) тоже расходится, и если (2) сходится, то (1) тоже сходится.
+\item[Первый признак сравнения.] Если $\exists F(x): |f(x)| \leqslant F(x)$, и интеграл $\int\limits_{a}^{+\infty}{F(x)dx}$ сходится, то (1)тоже сходится.
+\item[Второй признак сравнения.] Пусть $\exists \lim\limits_{x\to\infty}\cfrac{f(x)}{g(x)} = k \leqslant \infty$.
+\begin{enumerate}
+ \item $0<k<+\infty$. (1) сходится или расходится одновременно с (2).
+ \item $k = 0$. Сходимость (2) влечет сходимость (1).
+ \item $k = +\infty$. Расходимость (2) влечет расходимость (1).
+\end{enumerate}
+\item[Третий признак сравнения.] Если $f(x) = O\left(\cfrac{1}{x^p}\right)$ при $x\to\infty$, то (1) сходится абсолютно при $p>1$ и расходится при $p \leqslant 1$.
+\item[Критерий Коши.] (1) сходится $\Leftrightarrow \forall \varepsilon > 0$ $\exists A_{0} > a: \forall A_{1},A_{2} \geqslant A_{0}$\quad$\bigl| \int\limits_{A_{1}}^{A_{2}}{f(x)dx} \bigl| < \varepsilon$ 
+
+Рассмотрим интеграл $\int\limits_{a}^{+\infty}{f(x)g(x)dx}$ (3), где $ a > 0$.
+
+\item[Признак Дирихле.] (3) сходится, если:
+\begin{enumerate}
+ \item $\exists K: \forall A > a$ верно, что $\bigl| \int\limits_{a}^{A}{f(x)dx} \bigl| < K$;
+ \item $g(x)$ монотонна и $\lim\limits_{x\to +\infty}g(x) = 0$.
+\end{enumerate}
+\item[Признак Абеля.] (3) сходится, если:
+\begin{enumerate}
+ \item (1) сходится;
+ \item $\exists L: |g(x)| < L$ 
+\end{enumerate}
+
+\end{description}
+\subsection{Невзымаемые в элементарных функциях интегралы}
+\begin{description}
+ \item[Интеграл Пуассона.] $\int\limits_{-\infty}^{+\infty}e^{-x^2}d\ x = \sqrt{\pi}$
+ \item[Интеграл Дирихле.] $\int\limits_{0}^{+\infty}\dfrac{\sin\ x}{x}dx = \dfrac{\pi}{2}$
+ \item[Интеграл Эйлера.] $\int\limits_{0}^{\pi/2}\ln\sin(x)dx = \int\limits_{0}^{\pi/2}\ln\cos(x)dx = -\dfrac{\pi}{2}\ln(2)$
+ \item[Интеграл Френеля.] $\int\limits_{0}^{+\infty}\sin(x^2)dx = \int\limits_{0}^{+\infty}\cos(x^2)dx = \dfrac{1}{2}\sqrt{\dfrac{\pi}{2}}$
+\item $\int\limits_{0}^{+\infty}e^{-ax^2}\cos(bx)dx = \dfrac{1}{2}\sqrt{\dfrac{\pi}{a}}e^{\frac{-b^2}{4a}}$
+\end{description}
+\section{Интегралы, зависящие от параметра}
+\subsection{Операции над интегралами}
+\begin{description}
+ \item[Теорема Фруллани.] Пусть $a,b > 0$, $f(x)$ непрерывна, интеграл $\int\limits_{A}^{+\infty}\dfrac{f(x)}{x}dx$ сходится при любом $A > 0$. Тогда $\int\limits_{0}^{+\infty}\dfrac{f(ax) - f(bx)}{x}dx = f(0)\ln\left(\dfrac{b}{a}\right)$.
+\end{description}
+Пусть $\prod = [a \leqslant x \leqslant b]\times[c \leqslant y \leqslant d]$.
+\begin{description}
+ \item[Интегрирование.] Пусть $f(x,y)$ непрерывна в $\prod$. Тогда 
+$$\int\limits_c^d\left[\int\limits_a^bf(x,y)dx\right]dy =
+\int\limits_a^b\left[\int\limits_c^df(x,y)dy\right]dx.$$
+ \item[Дифференцирование.] Пусть $f(x,y)$ и $\dfrac{\partial f(x,y)}{\partial y}$ непрерывны в $\prod$, а $\alpha(y),\beta(y)$ непрерывны на $[c,d]$. Тогда 
+$$ \left(\int\limits_{\alpha(y)}^{\beta(y)}f(x,y)dx\right)'_y = \int\limits_{\alpha(y)}^{\beta(y)}f\dfrac{\partial f(x,y)}{\partial y}dx - \alpha'(y)f(\alpha(y),y) + \beta'(y)f(\beta(y),y).$$
+\end{description}
+\subsection{Признаки равномерной сходимости}
+\begin{description}
+ \item[Признак Вейерштрасса.] Пусть для любых $(x,y)\in\prod_{\infty}=[a,+\infty)\times[c,d]\ \  |f(x,y)| \leqslant g(x)$ и интеграл $\int\limits_{a}^{+\infty}g(x)dx$ сходится. Тогда  $\int\limits_{a}^{+\infty}f(x,y)dx$ сходится равномерно в $\prod_{\infty}$.
+\item[Признак Дини.] Пусть $f(x,y)$ непрерывна и неотрицательна в $\prod_{\infty}$, а интеграл $\int\limits_{a}^{+\infty}f(x,y)dx$ непрерывен по $y$. Тогда он сходится равномерно.
+\item[Признак Дирихле.] Пусть:\begin{enumerate}
+ \item $\exists M > 0,$ т.ч. $\forall (R,y)\in\prod_{\infty}\  \left|\int\limits_{a}^{R}f(x,y)dx\right| \leqslant M;$
+\item $g(x,y)$ монотонна по $x$ при фиксированном $y$;
+\item При $x\to+\infty$ $g(x,y)$ равномерно по $y$ стремится к нулю.
+\end{enumerate}
+Тогда интеграл $\int\limits_{a}^{+\infty}f(x,y)g(x,y)dx$ равномерно сходится в $\prod_{\infty}$.
+\item[Признак Абеля.] Пусть:
+\begin{enumerate}
+\item $\int\limits_a^{+\infty}f(x,y)dx$ сходится равномерно в $\prod_{\infty}$;
+\item $g(x,y)$ монотонна по $x$;
+\item $|g(x,y)| < M $ $\forall (x,y)\in\prod_\infty$.
+\end{enumerate}
+Тогда интеграл $\int\limits_{a}^{+\infty}f(x,y)g(x,y)dx$ равномерно сходится в $\prod_{\infty}$.
+\end{description}
+\subsection{Интегралы Эйлера первого рода (Бета-функции)}
+Интегралом Эйлера первого рода (Бета-функцией) называется выражение 
+$$ B(a,b) =\int\limits_{0}^{1}x^{a-1}(1-x)^{b-1}dx,$$ где $a,b>0$.
+Эта функция обладает следующими свойствами:
+\begin{enumerate}
+\item $B(a,b) = B(b,a)$
+\item $B(a,b) = \dfrac{b-1}{a+b-1}B(a,b-1)$ 
+\item $B(a,n) = \dfrac{(n-1)!}{a(a+1)(a+2)\ldots(a+n-1)}$ ($n$ - натуральное)
+\item $B(a,b) = \int\limits_{0}^{\infty}\dfrac{y^{a-1}}{(1+y)^{a+b-1}}dy$
+\item $B(a,b) = \dfrac{\Gamma(a)\Gamma(b)}{\Gamma(a+b)}$
+\end{enumerate}
+\subsection{Интегралы Эйлера второго рода (Гамма-функции)}
+Интегралом Эйлера второго рода называется выражение
+$$\Gamma(a) = \int\limits_{0}^{\infty}x^{a-1}e^{-x}dx,$$ где $a>0$. Эта функция обладает следующими свойствами:
+\begin{enumerate}
+\item $\Gamma(s+1) = s\Gamma(s)$
+\item $\Gamma(1/2) = \sqrt{\pi}$
+\item $\Gamma\left(\dfrac{1}{2} + \dfrac{n}{2}\right) = \begin{cases} \dfrac{1\cdot2\cdot3\cdots(2k-1)\sqrt{2\pi}}{2^k}, & n = 2k, k = 1,2,\ldots \\ k!, & n = 2k+1, k = 0,1,2,\ldots \end{cases}$
+\item $\Gamma(x)\Gamma(1-x) = \dfrac{\pi}{\sin(\pi x)}$
+\item \emph{(Формула Эйлера-Гаусса)}$\Gamma(a) = \lim\limits_{n\to\infty}n^{(a)}\dfrac{(n-1)!}{a(a+1)(a+2)\cdots(a+n-1)} $ 
+\end{enumerate}
+\section{Числовые ряды}
+\subsection{Признаки сравнения знакопостоянных рядов}
+Расмотрим два ряда с положительными членами $\sum\limits_{k=1}^{\infty}a_k$ (1) и $\sum\limits_{k=1}^{\infty}b_k$ (2)
+\begin{description}
+\item[Первый признак сравнения.] Если для всякого $n$, начиная с некоторого, $a_n \leqslant b_n $, то сходимость ряда (2) влечет сходимость ряда (1); расходимость ряда (1) влечет расходимость ряда (2).
+\item[Второй признак сравнения.] Если существует конечный $\lim\limits_{n\to\infty}\dfrac{a_n}{b_n} $, то сходимость ряда (2) влечет сходимость ряда (1); расходимость ряда (1) влечет расходимость ряда (2).
+\item[Третий признак сравнения.] Если для всякого $n$, начиная с некоторого, $ \dfrac{a_{n+1}}{a_n} \leqslant \dfrac{b_{n+1}}{b_n}$ то сходимость ряда (2) влечет сходимость ряда (1); расходимость ряда (1) влечет расходимость ряда (2).
+\end{description}
+\subsection{Достаточные признаки сходимости}
+\begin{description}
+\item[Признак Даламбера.]
+\begin{enumerate}
+\item Если для всякого $n$, начиная с некоторого, $\dfrac{a_{n+1}}{a_n} \leqslant L < 1$, то ряд (1) сходится; если $\dfrac{a_{n+1}}{a_n} \geqslant 1$, то ряд (1) расходится.
+\item Если $\lim\limits_{n\to\infty}\dfrac{a_{n+1}}{a_n} = L$, то ряд сходится при $L<1$  и расходится при $L>1$.
+\end{enumerate}
+\item[Признак Коши.]
+\begin{enumerate}
+\item Если для всякого $n$, начиная с некоторого, $\sqrt[n]{a_n} \leqslant L< 1$, то ряд (1) сходится; если $\sqrt[n]{a_n} \geqslant 1$, то ряд (1)расходится.
+\item Если $\lim\limits_{n\to\infty}\sqrt[n]{a_n} = L$, то ряд сходится при $L<1$  и расходится при $L>1$.
+\end{enumerate}
+\item[Признак Раабе.]
+\begin{enumerate}
+\item Если для всякого $n$, начиная с некоторого, $n\left( 1 - \dfrac{a_{n+1}}{a_n}\right) \geqslant L > 1$, то ряд (1) сходится; если $n\left( 1 - \dfrac{a_{n+1}}{a_n}\right) \leqslant L < 1$, то ряд (1)расходится.
+\item Если $\lim\limits_{n\to\infty}n\left( 1 - \dfrac{a_{n+1}}{a_n}\right) = L$, то ряд сходится при $L>1$  и расходится при $L<1$.
+\end{enumerate}
+
+
+\item{!\bfseries\emph{Замечание}.} Признаки Коши,Даламбера и Раабе не работают при $L=1$.
+
+\item[Признак Гаусса.] Пусть $\dfrac{a_n}{a_{n+1}} = \lambda + \dfrac{\mu}{n} + O\left(\dfrac{1}{n^2}\right),n\to+\infty$.
+\begin{enumerate}
+ \item $ \lambda > 1$. (1) сходится.
+ \item $ \lambda < 1$. (1) расходится.
+ \item $ \lambda = 1$. (1) сходится при $\mu > 1$ и расходится при $\mu \leqslant 1$.
+\end{enumerate}
+
+\item[Логарифмический признак.] Если $\dfrac{\ln(1/a_n)}{\ln(n)} \leqslant 1$, то ряд (1) расходится; если это отношение больше единицы, то он сходится.
+\item[Интегральный признак Коши-Маклорена.] Пусть $f(x)$ - невозрастающая функция, принимающая неотрицательные значения; тогда ряд $\sum\limits_{k=1}^{\infty}f(k)$ сходится или расходится одновременно с интегралом $\int\limits_{1}^{+\infty}f(x)dx$.
+\item[Признак Ермакова.] Пусть $f(x)$ - невозрастающая функция, принимающая неотрицательные значения, и $\lim\limits_{x\to\infty}\dfrac{e^xf(e^x)}{f(x)} = L$. Тогда ряд $\sum\limits_{k=1}^{\infty}f(k)$ сходится при $L > 1$ и расходится при $L <1$.
+\item[Признак Лейбница.] Ряд $\sum\limits_{n=1}^{\infty}(-1)^{k-1}a_k$ (\emph{ряд Лейбница})сходится, если $\left(a_k\right)$ - монотонно стремящаяся к нулю последовательность. При этом справедлива оценка: $| S_n(x) - S(x)| < a_{n+1}$, где $S_n(x)$ - энная частичная сумма ряда, $S(x)$ - сумма ряда.
+
+Рассмотрим ряд $\sum\limits_{k=1}^{\infty}u_kv_k$  (3)
+\item[Первый признак Абеля.] Если ряд $\sum\limits_{k=1}^{\infty}u_k$ обладает ограниченной последовательностью частичных сумм, а $(v_k)$ - последовательность с ограниченным изменением, то ряд (3) сходится.
+\item[Второй признак Абеля.] Если ряд $\sum\limits_{k=1}^{\infty}u_k$ сходится, а ряд $\sum\limits_{k=1}^{\infty}v_k$ обладает ограниченной и монотонной последовательностью частичных сумм, то ряд (3) сходится.
+\item[Признак Дирихле-Абеля.] Если ряд $\sum\limits_{k=1}^{\infty}u_k$ обладает ограниченной последовательностью частичных сумм, а $(v_k)$ - монотонно стремящаяся к нулю последовательность, то ряд (3) сходится.
+\end{description}
+
+\section{Функциональные ряды}
+\subsection{Исследование равномерной сходимости}
+Рассмотрим функциональный ряд $\sum\limits_{k=1}^{\infty}u_k(x)$ (1) и функциональную последовательнсть $\{v_k\}$ (2), определенные на множестве $\{X\}.$
+
+\begin{description}
+\item[Критерий Коши.] Для равномерной сходимости ряда (1) необходимо и достаточно, чтобы $\forall \varepsilon >0 $ существовал такой номер $N$, что для всякого $n > N$,  любого натурального $p$ и всех$x\in\{X\}$  $|\sum\limits_{k = n+1}^{n+p}u_k(x)| < \varepsilon$.
+\item[Первый признак Абеля.] Если функциональный ряд (1) обладает равномерно - ограниченной последовательностью частичных сумм, а функциональная последовательность (2) обладает равномерно-ограниченным на $\{X\}$ изменением и сходится к тождественному нулю, то функциональный ряд $\sum\limits_{k=1}^{\infty}u_k(x)v_k(x)$ сходится равномерно на $\{X\}$.
+\item[Второй признак Абеля.] Если функциональный ряд (1) равномерно сходится, а функциональная последовательность (2) обладает равномерно-ограниченным изменением  на $\{X\}$, то функциональный ряд $\sum\limits_{k=1}^{\infty}u_k(x)v_k(x)$ сходится равномерно на $\{X\}$.
+\item[Признак Дирихле-Абеля.] Если функциональный ряд (1) обладает равномерно-ограниченной последовательностью частичных сумм, а функциональная последовательность (2) не возрастает на $\{X\}$ и сходится к тождественному нулю, то функциональный ряд $\sum\limits_{k=1}^{\infty}u_k(x)v_k(x)$ сходится равномерно на $\{X\}$.
+\item[Признак Вейерштрасса.] Если для функционального ряда (1) существует числовой ряд \footnote{В таком случае говорят, что ряд мажорируется числовым рядом.} $\sum\limits_{k=1}^{\infty}c_k$, т.ч. $|u_k(x)| \leqslant c_k \forall k, \forall x\in \{X\}$  то ряд (1) сходится равномерно на $\{X\}$.
+\item[Признак Дини.] Пусть ряд (1) сходится в каждой точке $\{X\}$ к сумме $S(x)$, и:
+\begin{enumerate}
+\item Множество $\{X\}$ компактно (т.е. замкнуто и ограничено);
+\item $u_k(x) > 0 (<0) \forall k,\forall x\in\{X\}$;
+\item $\forall k$  $S_k(x)$ непрерывна на $\{X\}$;
+\item $S(x)$ непрерывна на $\{X\}$.
+\end{enumerate}
+Тогда ряд (1) сходится равномерно к $S(x)$ на $\{X\}$.
+\end{description}
+\subsection{Почленные операции над рядами}
+\begin{description}
+\item[Почленный переход к пределу.] Пусть ряд (1) равномерно сходится на множестве $\{X\}$, и каждый его член имеет предел в точке $x_0 \in \ \{X\}$. Тогда и сумма этого ряда имеет в этой точке предел, причем его можно вычислять почленно.
+\item[\emph{Следствие.}] Пусть ряд (1) равномерно сходится на множестве $\{X\}$, и каждый его член непрерывен в точке $x_0 \in \ \{X\}$. Тогда и сумма этого ряда непрерывна в этой точке.
+\item[Почленное интегрирование.] Пусть ряд (1) равномерно сходится на сегмемнте $[a,b]$, и каждый его член интегрируем на $[a,b]$. Тогда и сумма этого ряда интегрируема на $[a,b]$, причем вычислять интеграл можно почленно.
+\item[Почленное дифференцирование.] Если каждый член ряда (1) имеет производную на сегменте $[a,b]$, и если ряд, составленный из этих производных, сходится равномерно на $[a,b]$, то и сумма этого ряда имеет производную на $[a,b]$, причем вычислять ее можно почленно.
+\end{description}
+
+\section{Ряды Фурье}
+\subsection{Ряды Фурье в произвольном псевдоевклидовом пространстве}
+Пусть $\{\psi_k\}$- ортонормированная система (ОНС) элементов произвольного псевдоевклидова пространства $L$. Тогда рядом Фурье элемента $f\in L$ называется ряд вида $\sum\limits_{k=1}^{\infty}\psi_kf_k$, где $f_k = (f,\psi_k)$. Среди всех сумм вида $\sum\limits_{k=1}^{n}\psi_kc_k$ наименьшим отклонением от $f$ обладает $n$-я частичная сумма ряда Фурье элемента $f$.
+\begin{enumerate}
+ \item \textit{(Тождество Бесселя)} $||f - \sum\limits_{k=1}^{n}\psi_kf_k|| = ||f||^2 - \sum\limits_{k=1}^{n}f_k$.
+ \item $||f||^2 - \sum\limits_{k=1}^{n}f_k^2 \leqslant || f -\sum\limits_{k=1}^{n}\psi_kf_k ||^2$
+\end{enumerate}
+ \textbf{Теорема.}  Ряд $\sum\limits_{n=1}^{\infty}f_k$ сходится, причем если он сходится к сумме $f$,то $\sum\limits_{n=1}^{\infty}f_k \leqslant ||f||^2$ \textit{(неравенство Бесcеля)}.
+
+ОНС $\{\psi_k\}$ называется замкнутой, если для любого $f\in L$, $\forall \varepsilon > 0$ $\exists N, c_1,c_2,...c_N: ||f - \sum\limits_{k=1}^{N}c_k\psi_k|| < \varepsilon$.
+
+\begin{enumerate}
+ \item Если ОНС замкнута, то неравенство Бесселя для любого элемента пространства $L$ переходит в равенство (называемое \textit{равенством Парсиваля}); кроме того, для любого элемента $f \in L$ его ряд Фурье сходится к $f$ по норме.
+\item Если в евклидовом пространстве у двух элементов совпадают их коэффициенты разложения в ряды Фурье, то это элементы совпадают.
+\end{enumerate}
+
+\subsection{Ряды Фурье в пространстве $L[-\pi,\pi]$}
+Рассмотрим пространство $L[-\pi,\pi]$ всех интегрируемых на $[-\pi,\pi]$ функций, удовлетворяющих условию: $f(a) = \frac{1}{2}(f(a-0)+f(a+0))$. Тригонометрическая система (ТГС) $\sin(nx).\cos(nx)$ является замкнутой в $L[-\pi,\pi]$. При этом разложение функции $f(x)$ по ТГС (тригонометрический ряд Фурье, ТРФ) принято записывать так:
+$$f(x) = \frac{a_0}{2}+\sum\limits_{n=1}^{\infty}(a_n\cos(nx)+b_n\sin(nx)),$$
+где $a_0 = \frac{1}{\pi}\int\limits_{-\pi}^{\pi}f(x)dx$, $a_n = \frac{1}{\pi}\int\limits_{-\pi}^{\pi}f(x)\cos(nx)dx$, $b_n = \frac{1}{\pi}\int\limits_{-\pi}^{\pi}f(x)\sin(nx)dx$.
+
+Частичную сумму ряда ТРФ можно найти так: $S_n = \frac{1}{\pi}\int\limits_{-\pi}^{\pi}f(x+t)\cfrac{\sin((n+1/2)t)}{2\sin(t/2)}dt$.
+
+В случае разложения на произвольном сегменте $[a,b]$ справделивы формулы:
+$$f(x) = \frac{a_0}{2}+\sum\limits_{n=1}^{\infty} \left( a_n\cos\left( \frac{2\pi}{b-a}nx\right) + b_n\sin\left( \frac{2\pi}{b-a}nx\right) \right),$$ 
+где $a_0 = \dfrac{2}{b-a}\int\limits_{a}^{b}f(x)dx$, $a_n = \dfrac{2}{b-a}\int\limits_{a}^{b}f(x)\cos\left( \frac{2\pi}{b-a}nx\right)dx$, $b_n = \dfrac{2}{b-a}\int\limits_{a}^{b}f(x)\sin\left( \frac{2\pi}{b-a}nx\right)dx$.
+\begin{description}
+\item[Теорема Карлесона.] Пусть $f(x)$ допускает интеграл Лебега $\int\limits_{-\pi}^{\pi}f^2(x)dx$. Тогда ТРФ $f(x)$ сходится почти всюду на $[-\pi,\pi]$.
+\item[Теорема.] Пусть $f(x)$ удовлетворяет таким условиям:
+\begin{enumerate}
+ \item $f(x) \in C[-\pi,\pi]$;
+ \item $f(\pi) = f(-\pi)$;
+ \item $f(x)$ имеет кусочно-непрерывную производную на $[-\pi,\pi]$.
+Тогда ТРФ $f(x)$ сходится к ней равномерно на $[-\pi,\pi]$. Более того, сходится ряд 
+$$\frac{|a_0|}{2}+\sum\limits_{n=1}^{\infty}(|a_n\cos(nx)| + |b_n\cos(nx)|)$$.
+\end{enumerate} 
+\item[Теорема.] Пусть $f(x)$ такова, что $\forall k = 0,..m $:
+\begin{enumerate}
+ \item $f^{(k)} \in C[-\pi,\pi]$;
+ \item $f^{(k)}(-\pi) = f^{(k)}(\pi)$;
+ \item $f(x)$ имеет кусочно-непрерывную производную порядка $m+1$ на $[-\pi,\pi]$. 
+\end{enumerate}
+
+Тогда ТРФ $f(x)$ можно почленно дифференцировать $m$ раз.
+\end{description}
+
+\section{Преообразование Фурье}
+\subsection{Основные свойства}
+Пусть $f\in C^1(-\infty,+\infty)$ и сходятся интегралы $\int\limits_{-\infty}^{+\infty}|f(x)|dx$ и $\int\limits_{-\infty}^{+\infty}|f'(x)|dx$. \textit{Прямым преобразованием Фурье} функции $f(x)$ называется 
+$$\F[f](\lambda) = F(\lambda) = \int\limits_{-\infty}^{+\infty}f(t)e^{-i\lambda t}dt,$$ 
+а \textit{обратным преобразованием Фурье} -  
+$$f(t) = \dfrac{1}{2\pi} \int\limits_{-\infty}^{+\infty}F(\lambda)e^{i\lambda t}dt.$$ 
+Если функции $f(t)$ отвечает преобразование $F(\lambda)$, то будем писать $f(t)\leftrightarrow F(\lambda)$. Свойства преобразования Фурье:
+\begin{enumerate}
+\item Дифференцируемость оригинала. $f^{(l)}(t)\leftrightarrow (i\lambda)^lF(\lambda)$.
+\item Дифференцируемость образа. $(it)^k f(t) \leftrightarrow F^{(k)}(\lambda)$.
+\item Интегрирование оригинала. $\int\limits_{-\infty}^{t}f(s)ds \leftrightarrow \dfrac{1}{i\lambda}F(\lambda)$.
+\item Интегрирование образа.$\dfrac{f(t)}{-it} \leftrightarrow \int\limits_{-\infty}^{\lambda}F(\xi)d\xi$.
+\item Линейность. Если $f(t)\leftrightarrow F(\lambda)$ и $g(t)\leftrightarrow G(\lambda)$, то $\alpha f(t) + \beta g(t)\leftrightarrow \alpha F(\lambda) + \beta F(\lambda)$.
+\item Сдвиг. $f(t-t_0)\leftrightarrow e^{-i\lambda t_0}F(\lambda)$.
+\item Масштабирование. $f(\alpha t)\leftrightarrow \frac{1}{|\alpha|}F(\lambda),\ \alpha>0$, $\dfrac{1}{|\beta|}f\left(\frac{t}{\beta} \leftrightarrow F(\beta\lambda)\right)$
+\item Симметрия. $F(t)\leftrightarrow 2\pi f(-\lambda)$.
+\item Свёртка\footnote{Отметим, что свёрткой функций $f$ и $g$ называется $[f*g](t) = \int\limits_{-\infty}^{\infty}f(s)g(t-s)ds = \int\limits_{-\infty}^{\infty}f(t-s)g(t)ds$.} оригиналов. $[f*g](t) \leftrightarrow F(\lambda)G(\lambda)$.
+\item Свёртка образов. $f(t)g(t) \leftrightarrow \dfrac{1}{2\pi}[F*G](-\lambda)$.
+\item Формула Парсеваля - Плашернеля. Пусть $\int\limits_{-\infty}^{+\infty}f(x)^2dx < \infty, \int\limits_{-\infty}^{+\infty}g(x)^2dx < \infty$; тогда $\int\limits_{-\infty}^{+\infty}f(t)\overline{g(t)}dt = \dfrac{1}{2\pi}\int\limits_{-\infty}^{+\infty}\overline{F(t)}G(t)dt$. 
+\item У четных функций преобразование Фурье принимает только вещественные значения, у нечетных - только мнимые.
+\end{enumerate}
+\subsection{Преобразования некоторых функций}
+\begin{enumerate}
+\begin{multicols}{2}
+ \item Пусть
+$$
+f(t) = \begin{cases}
+        1,& |t| \leqslant A,\\
+	0,& |t| > A.
+       \end{cases}
+$$
+Тогда $F(\lambda) = \frac{2}{\lambda}\sin(\lambda A)$.
+\item $\F[\delta(x)] = 1$;
+\item $\F[\delta^{(m)}(x)] = (-i\lambda)^m$;
+\item $\F[x^m](\lambda ) = 2\pi(-i\delta(\lambda))^m$;
+\item $\F[1(x)] = 2\pi \delta(\lambda)$;
+\item $\F[e^{ibx}] = 2\pi\delta(\lambda-b)$;
+\item $\F[\cos bx] = \pi(\delta(\lambda+b) + \delta(\lambda-b))$;
+\item $\F[\sin bx] = -i\pi(\delta(\lambda+b) + \delta(\lambda-b))$;
+\item $\F[e^{-\alpha t^2}](\lambda) = \sqrt{\frac{\pi}{2} \exp\left(-\frac{\lambda^2}{4\alpha}\right)}$;
+\item $\F[e^{\pm ia^2x^2}](\lambda) = \dfrac{\sqrt{\pi}}{a}e^{\mp i(\lambda^2/a^2-\pi)/4}$;
+\item $\F[\cos(a^2x^2)](\lambda) = \dfrac{\sqrt{\pi}}{a}\cos\left(\dfrac{\lambda^2}{4a^2} - \dfrac{\pi}{4} \right)$;
+\item $\F[\sin(a^2x^2)](\lambda) = -\dfrac{\sqrt{\pi}}{a}\sin\left(\dfrac{\lambda^2}{4a^2} - \dfrac{\pi}{4} \right)$;
+\item $\F[\theta(\pm x)](\lambda) = \pi\delta(\lambda) \pm i\mathcal{P}\frac{1}{\lambda}$;
+\item $\F[\sgn(x)](\lambda) = 2i\mathcal{P}\frac{1}{\lambda}$;
+\item $\F\left[\mathcal{P}\frac{1}{x}\right](\lambda) = i\pi\sgn\lambda$;
+\item $\F[|x|](\lambda) = 2 \left(\mathcal{P}\frac{1}{\lambda}\right)'$; 
+\end{multicols}
+\end{enumerate}
+
+\section{Интегралы по многообразиям}
+\subsection{Замена переменных в n-кратных интегралах}
+\begin{enumerate}
+\item Пусть в n-мерном пространстве заданы функции $x_i = \varphi_i(\xi_1,\xi_2,\ldots,\xi_n)$, переводящие область $\Omega$ в $\Omega'$. Тогда $$\idotsint\limits_\Omega f(x_1,x_2,\ldots,x_n)dx_1 dx_2 \ldots dx_n = \idotsint\limits_{\Omega'} f(\varphi_1,\varphi_2,\ldots,\varphi_n) |I| d\xi_1 d\xi_2 \ldots d\xi_n,$$ где $I$ - якобиан $\dfrac{D(x_1,x_2,\ldots,x_n)}{D(\xi_1,\xi_2,\ldots,\xi_n)} = \det A,$ где матрица $ A= [a_{ij}] = \left[\dfrac{\partial x_i}{\partial \xi_j}\right]$.
+\item \emph{(Цилиндрические координаты.)} $x = r\cos(\varphi), y = r\sin(\varphi), z = z; |I| = r$.
+\item \emph{(Сферические координаты.)} $x = r\sin(\theta)\cos(\varphi), y = r\sin(\theta)\sin(\varphi), z = r\cos(\theta), |I| = r^2\sin(\theta)$.
+\item \emph{(n - мерные сферические координаты.)} $x_1 = r\cos(\varphi_1), x_2 = r\sin(\varphi_1)\cos(\varphi_2), \ldots, x_{n-1} = r\sin(\varphi_1)\sin(\varphi_2)\cdots \sin(\varphi_{n-2})\cos(\varphi_{n-1}), x_{n} = r\sin(\varphi_1)\sin(\varphi_2)\ldots \sin(\varphi_{n-2})\sin(\varphi_{n-1}), |I| = r^{n-1}\sin^{n-2}(\varphi_1)\sin^{n-3}(\varphi_2)\cdots\sin(\varphi_{n-2}).$ В случае, когда после подстановки под интегралом по $r$ оказывается функция только от $r$, интегралы по углам дадут $\omega_n = \dfrac{2\pi^{n/2}}{\Gamma\left(\dfrac{n}{2}\right)} $ (объем n-мерного единичного шара). 
+\end{enumerate}
+\subsection{Непосредственное вычисление криволинейных интегралов}
+ Пусть $C$ - кривая, заданная уравнениями $x=x(t),y=y(t),z=z(t), t\in [t_0,t_1]$. 
+\begin{description}
+ \item [К.И. первого рода.] $\int\limits_C f(x,y,z)ds = \int\limits_{t_0}^{t_1}f(x(t),y(t),z(t)) \sqrt{(x'(t))^2 + (y'(t))^2 + (z'(t))^2}dt.$ Этот интеграл не зависит от направления пробега кривой $C$.
+\item [К.И. второго рода.] $\int\limits_C P(x,y,z)dx + Q(x,y,z)dy + R(x,y,z)dz = \int\limits_{t_0}^{t_1}[P(x(t),y(t),z(t))x'(t) + Q(x(t),y(t),z(t))y'(t) + R(x(t),y(t),z(t))z'(t)]dt $. В случае, если $P(x,y,z)dx + Q(x,y,z)dy + R(x,y,z)dz = du$, где $u=u(x,y,z)$,\footnote{В случае односвязной области определения для этого достаточно попарного равенства частных производных: $\dfrac{\partial P}{\partial y} = \dfrac{\partial Q}{\partial x},\dfrac{\partial Q}{\partial z} = \dfrac{\partial R}{\partial y},\dfrac{\partial R}{\partial x} = \dfrac{\partial P}{\partial z}$; тогда функция находится по формуле $\int\limits_{x_0}^xP(x,y,z)dx + \int\limits_{y_0}^y Q(x,y,z)dy + \int\limits_{z_0}^zR(x,y,z)dz $, где $(x_0,y_0,z_0)$ - произвольная точка из области определения.} то $\int\limits_C P(x,y,z)dx + Q(x,y,z)dy + R(x,y,z)dz = u(x_1,y_1,z_1) - u(x_2,y_2,z_2)$, где $(x_1,y_1,z_1),(x_2,y_2,z_2)$ - начальная и конечная точка пути.
+\end{description}
+\subsection{Непосредственное вычисление поверхностных интегралов}
+Пусть $S$ - поверхность, заданная уравнениями $ x=x(u,v),y=y(u,v),z=z(u,v); (u,v)\in \Omega$. Тогда $$\oiint\limits_S f(x,y,z)dS = \iint\limits_{\Omega}f(x(u,v),y(u,v),z(u,v))\sqrt{EG - F^2}dudv,$$ где $E = \left(\dfrac{\partial x}{\partial u}\right)^2 + \left(\dfrac{\partial y}{\partial u}\right)^2 + \left(\dfrac{\partial z}{\partial u}\right)^2, G= \left(\dfrac{\partial x}{\partial v}\right)^2 + \left(\dfrac{\partial y}{\partial v}\right)^2 + \left(\dfrac{\partial z}{\partial v}\right)^2, F = \dfrac{\partial x}{\partial u}\dfrac{\partial x}{\partial v} + \dfrac{\partial y}{\partial u}\dfrac{\partial y}{\partial v} + \dfrac{\partial z}{\partial u}\dfrac{\partial z}{\partial v}$.
+\subsection{Геометрические приложения криволинейных и поверхностных интегралов}
+Пусть $D$ - плоская область, $C$ - контур, ее ограничивающий.
+\begin{enumerate}
+\item $|D| = \iint\limits_Ddxdy$.
+\item $|D| = \dfrac{1}{2}\oint\limits_C(xdy - ydx)$.
+\end{enumerate}
+Пусть $V$ - тело, ограниченное поверхностью $S$ с направляющими косинусами нормали $\cos(\alpha),\cos(\beta),\cos(\gamma)$.
+\begin{enumerate}
+\item  $|V| = \iiint\limits_Vdxdydz.$
+\item $|V| = \dfrac{1}{3}\oiint\limits_S(x\cos(\alpha)+y\cos(\beta)+z\cos(\gamma))dS.$
+\item Пусть $V$ -цилиндроид, ограниченный цилиндрической поверхностью, поверхностью $S:z = f(x,y)$ и плоскостью $Oxy$ ($\Omega$ - проекция поверхости $S$). Тогда $|V| = \iint\limits_\Omega f(x,y)dxdy$.
+\item Площадь поверхности $z = f(x,y)$ с проекцией $\Omega$ на плоскость $Oxy$, равна $\iint\limits_\Omega \sqrt{1 + \left(\dfrac{\partial z}{\partial x}\right)^2 + \left(\dfrac{\partial z}{\partial y}\right)^2}dxdy$.
+\item Площадь параметризуемой поверхности \footnote{Задание и определения см. в пункте ``Непосредственное вычисление поверхностных интегралов``} равна $\iint\limits_\Omega \sqrt{EG-F^2}dudv$.
+\end{enumerate}
+\section{Теория поля}
+\subsection{Операции над полями}
+Пусть $u = u(M), A = (P(M),Q(M),R(M))$, где M -точка трехмерного пространства. Тогда \emph{градиентом} скалярного поля $u$ называется вектор $\left(\dfrac{\partial u}{\partial x},\dfrac{\partial u}{\partial y},\dfrac{\partial u}{\partial z}\right)$, \emph{дивергеницей} векторного поля $A$ называется выражение $$ \text{div }A = \dfrac{\partial P}{\partial x} + \dfrac{\partial Q}{\partial y}+\dfrac{\partial R}{\partial z},$$ а \emph{ротором} векторного поля $A$ - вектор\footnote{Правило для запоминания формулы ротора. Первую компоненту можно запомнить как искаженное слово ''РЮКЗАК'', а вторая и третья получаются циклическими подстановками $P \to Q \to R \to P, x\to y\to z \to x$.} 
+$$\text{rot }A = \left( \dfrac{\partial R}{\partial y} - \dfrac{\partial Q}{\partial z},\dfrac{\partial P}{\partial z} - \dfrac{\partial R}{\partial x}, \dfrac{\partial Q}{\partial x} - \dfrac{\partial R}{\partial y}\right).$$ 
+
+\emph{Потоком} вектора $A$ через поверхность $S$ с направляющими косинусами $\cos(\alpha),\cos(\beta),cos(\gamma)$ называется интеграл $$\oiint\limits_S (A,n)dS = \oiint\limits_S (P\cos(\alpha) + Q\cos(\beta) + R\cos(\gamma))dS.$$ 
+
+ \emph{Циркуляцией} вектора $A$ вдоль контура $C$ называется интеграл $$\oint\limits_C (A, dr) = \oint\limits_c Pdx + Qdy + Rdz.$$
+
+{\bfseriesФормула Остроградского.} Пусть поверхность $S$ ограничивает область $V$, поле $A$ непрерывно в $V+S$ и дифференцируемо в области $V$. Тогда: $$ \oiint\limits_S (A,n)dS = \iiint\limits_V\text{div }A\  dx dy dz. $$
+
+{\bfseries Формула Грина.} Пусть $C$ - некоторый (замкнутый) кусочно-гладкий контур на плоскости, ограничивающий область $D$. Тогда, для функций $P(x,y),Q(x,y)$, непрерывных в $D+C$ и дифференцируемых в $D$  верно, что $$\oint\limits_C P dx + Q dy = \iint\limits_D \left(\dfrac{\partial Q}{\partial x} - \dfrac{\partial P}{\partial y}\right)dS.$$
+
+{\bfseries Формула Стокса.} Пусть контур $C$ - граница поверхности $S$, а $A$ дифференцируемо внутри тела, ограниченного $S$. Тогда  $$\oint\limits_C (A, dr) = \oiint\limits_S (\text{rot }A,n)dS.$$ 
+
+Имеют место следующие равенства:
+\begin{enumerate}
+ \item $\grad(u(M)v(M)) = u(M)\grad v(M) + v(M)\grad u(M)$
+ \item $\diver(u(M)A(M)) = A(M)\grad u(M) + u(M)\diver A(M)$
+ \item $\rotor(u(M)A(M)) = [A(M),\grad u(M)] + u(M)\grad u(M)$
+ \item $\diver(A(M)B(M)) = B(M)\rotor A(M) - A(M)\rotor B(M))$
+ \item $\rotor[A(M),B(M)] = A(M)\diver B(M) + B(M) \diver A(M) + [A(M),\rotor B(M)] + [B(M),\rotor A(M)]$
+\end{enumerate}
+
+\subsection{Повторные операции над полями}
+Прочерк означает, что операция лишена смысла (не определена).
+
+\begin{tabular}{|c|c|c|c|}
+{\bfseries Операция} &{\bfseries grad}  & {\bfseries div} & {\bfseries rot}\\
+{\bfseries grad} & -- & По определению & -- \\
+{\bfseries div}  & $\Delta u$ & -- & 0 \\
+{\bfseries rot}  & 0 & -- & grad  div $u$ - ($\Delta P, \Delta Q, \Delta R$) \\ 
+\end{tabular}
+
+$\Delta u = \dfrac{\partial^2 u}{\partial x^2} + \dfrac{\partial^2 u}{\partial y^2} + \dfrac{\partial^2 u}{\partial z^2}$ - оператор Лапласа скалярного поля $u$.
+\section{Теория устойчивости: метод функции Ляпунова}
+\subsection{Автономные системы}
+Рассматривается система $\dot{x} = f(x),\ f(0)=0$. Функцией Ляпунова будем называть непрерывно-дифференцируемую функцию $V(x)$, т.ч. $V(0)=0$. Будем называть ее
+\begin{enumerate}
+ \item определенно-положительной, если $V(x)>0\ \forall x\neq0;$
+ \item определенно-отрицательной, если $V(x)<0\ \forall x\neq0;$
+ \item знакоположительной, если $V(x)\geqslant0\ \forall x;$
+ \item знакоотрицательной, если $V(x)\leqslant0\ \forall x.$
+\end{enumerate}
+Обозначим производную в силу системы (ПСС) как $\dfrac{dV}{dt}\stick_{f} = \scalar{\nabla V(x(t))}{f(x(t))}$.
+\begin{description}
+ \item[Теорема Ляпунова.] Пусть у системы нашлась определенно-положительная функция Ляпунова, ПСС которой знакоотрицательна (определенно-отрицательна). Тогда нулевое положение равновесия устойчиво (асимптотически устойчиво). 
+ \item[Теорема Красовского.] Пусть существует определенно-положительная $V(x)$, $\dfrac{dV}{dt}\stick_f$ --- знакоотрицательна, множество $K = \{x: \frac{dV}{dt} \equiv 0\}$ не содержит целых полутраекторий системы. Тогда нулевое положение равновесия асимптотически устойчиво.
+ \item[Теорема Ляпунова.] Пусть существует функция Ляпунова, такая, что ее ПСС определенно-положительна, и $\forall\varepsilon>0$ найдется $x_0:\ \norm{x_0}<\varepsilon,\ V(x_0)>0$. Тогда нулевое положение равновесия не устойчиво по Ляпунову. 
+ \item[Теорема Ляпунова.] Пусть существует функция Ляпунова $V(x)$, т.ч.
+\begin{enumerate}
+ \item $\dfrac{dV}{dt}\stick_f = \alpha V + W,\ \alpha>0,\ W(x)$ --- знакоположительна;
+ \item $\forall\varepsilon>0$ найдется $x_0:\ \norm{x_0}<\varepsilon,\ V(x_0)>0$.
+\end{enumerate}
+Тогда нулевое положение равновесия не устойчиво по Ляпунову.
+ \item[Теорема Четаева.] Пусть существует функция Ляпунова $V(x)$, т.ч.
+\begin{enumerate}
+ \item $\forall\varepsilon>0$ найдется $x_0:\ \norm{x_0}<\varepsilon,\ V(x_0)>0$.
+ \item $\forall x$, т.ч. $V(x)\geqslant\alpha>0$, верно, что $\dfrac{dV}{dt}\stick_f \geqslant \beta >0$.
+\end{enumerate}
+Тогда нулевое положение равновесия не устойчиво по Ляпунову.
+ \item[Теорема Красовского.] Пусть существует функция Ляпунова $V(x)$, т.ч.
+\begin{enumerate}
+ \item ПСС $V(x)$ знакооотрицательна;
+ \item Множество $K = \{x: \frac{dV}{dt} \equiv 0\}$ не содержит целых полутраекторий системы;
+ \item $\forall\varepsilon>0$ найдется $x_0:\ \norm{x_0}<\varepsilon,\ V(x_0)>0$.
+\end{enumerate}
+Тогда нулевое положение равновесия не устойчиво по Ляпунову.
+\end{description}
+\subsection{Неавтономные системы}
+Рассматривается система $\dot{x} = f(t,x),\ f(t,0)=0$. Считаем, что начальные точки по $x$ лежат в шарике радиуса $h$, и все упомянутые функции определены там же. Функцией Ляпунова будем называть непрерывно-дифференцируемую функцию $V(t,x)$, т.ч. $V(t,0)=0$.  Будем называть ее
+\begin{enumerate}
+ \item определенно-положительной, если существует определенно-положительная $W(x)$, т.ч $V(t,x)\geqslant W(x)\ \forall x,t;$
+ \item определенно-отрицательной, если существует определенно-положительная $W(x)$. т.ч $V(t,x)\leqslant-W(x)\ \forall x,t;$
+ \item знакоположительной, существует знакоположительная $W(x)$, т.ч $V(t,x)\geqslant W(x)\ \forall x,t;$
+ \item знакоотрицательной, существует знакоотрицательная $W(x)$, т.ч $V(t,x)\geqslant W(x)\ \forall x,t.$
+ \item допускающей бесконечно малый высший предел (дбмвп), если существует определенно-положительная $W(x)$, т.ч. $0 \leqslant V(t,x)\leqslant W(x)\ \forall t,x$.
+\end{enumerate}
+\begin{description}
+ \item[Теорема Ляпунова.] Пусть существует определенно-положительная функция Ляпунова, т.ч. ее ПСС знакоотрицательна (определенно-отрицательна и сама функция дбмвп). Тогда нулевое положение равновесия устойчиво (асимптотически устойчиво). 
+ \item[Теорема.] Пусть существует функция Ляпунова $V(t,x)$, т.ч.
+\begin{enumerate}
+ \item $V(t,x)$ --- дбмвп;  
+ \item ПСС $V(t,x)$  знакоположительна;
+ \item $\forall\varepsilon>0, \forall T\geqslant t_0:\ $ найдется $t$ и $x,$ т.ч $\geqslant T,\ \norm{x}<\varepsilon$: $V(t,x)$ имеет один знак с ПСС.
+\end{enumerate}
+Тогда нулевое решение не устойчиво.
+ \item[Теорема Четаева.] Пусть сущесвует функция Ляпунова $V(t,x)$, т.ч.:
+\begin{enumerate}
+ \item $V(t,x)$ ограничена сверху;
+ \item $\forall\varepsilon>0, \forall T\geqslant t_0:\ $ найдется $t$ и $x,$ т.ч $\geqslant T,\ \norm{x}<\varepsilon$: $V(t,x) >0$;
+ \item ПСС определена положительно на множестве $\{(t,x):\ V(t,x) >0\}$.
+\end{enumerate}
+ Тогда нулевое решение не устойчиво.
+\item[Теорема Марачкова.] Пусть существует определенно-положительная функция Ляпунова, т.ч. ее ПСС определенно-отрицательна, а правая часть системы ограничена во все моменты времени и на всех рассматриваемых точках фазового пространства. Тогда нулевое решение асимптотически устойчиво.
+\end{description}
+\subsection{Специальные виды устойчивости}
+Будем говорить, что нулевое решение устойчиво равномерно по $t_0$, если размер шарика, из которого надо стартовать для оставания в $\varepsilon$-окрестности нуля, не зависит от времени старта траектории $t_0$.
+\begin{description}
+ \item[Теорема Персидского.] Пусть существует функция Ляпунова $V(t,x)$, т.ч.
+\begin{enumerate}
+ \item  $V(t,x)$ определенно-положительна; 
+ \item  ПСС знакоотрицательна.
+\end{enumerate}
+Тогда нулевое решение устойчиво равномерно по $t_0$.
+\end{description}
+
+Будем говорить, что стремление траектории равномерно по параметру $X$, если время выхода на $\varepsilon$-малость и радиус шарика, в котором должны лежать начальные данные, можно выбрать независимо от $X$.
+\begin{description}
+ \item[Лемма Красовского.] Из асимптотической устойчивости и устойчивости по $t_0$ следует устойчивость, равномерная по $x_0$.
+ \item[Теорема.] В условиях теоремы Ляпунова имеет место устойчивость, равномерная по $(t_0,x_0)$.
+ \item[Теорема Красовского.] Пусть существует определенно-положительная функция Ляпунова $V(t,x)$, т.ч.
+\begin{enumerate}
+ \item $V(t,x)$ дбмвп; 
+ \item ПСС знакоотрицательна;
+ \item $\forall \eta>0 \ \int_{t_0}^{+\infty}m_\eta(t)dt = + \infty$, где $m_\eta = \inf\left\lbrace -\dfrac{dV}{dt} \ \stick\ x: \ \eta \leqslant \norm{x} \leqslant h\right\rbrace$. 
+\end{enumerate}
+Тогда нулевое решение устойчиво равномерно по $x_0$.
+\end{description}
+ 
+Будем говорить, что система устойчива в целом, если оно устойчиво и бассейном приятяжения нулевого решения является все фазовое пространство.
+\begin{description}
+ \item[Теорема Барбашина-Красовского.] Пусть существует определенно-положительная функция Ляпунова $V(t,x)$, такая, что
+\begin{enumerate}
+ \item $V(t,x)$ дбмвп; 
+ \item $V(t,x)$ допускает бесконечно большой верхний предел, т.е. для любого $M>0$ существует $R=R(M)>0$, т.ч. для всех $x,\ \norm{x} \geqslant R$, верно $V(t,x) > M$ для всех $t\geqslant t_0$.
+ \item ПСС $V(t,x)$ определенно-отрицательна.
+\end{enumerate}
+Тогда нулевое решение устойчиво в целом.
+\end{description}
+
+Будем говорить, что система экспоненциально устойчива (в целом), если существуют такие $L>0,\alpha>0$, что $\forall t_0,x_0$ верно $\norm{x(t;t_0,x_0)}\leqslant Le^{-\alpha(t-t_0)}\norm{x_0}$.
+\begin{description}
+ \item[Теорема.] Пусть существует функция Ляпунова и такие константы $c_1,c_2,c_3>0$ т.ч.:
+\begin{enumerate}
+ \item $c_1\norm{x}^2\leqslant V(t,x) \leqslant c_2\norm{x}^2$; 
+ \item $\dfrac{dV}{dt}\stick \leqslant -c_3\norm{x}^2$.
+\end{enumerate}
+Тогда нулевое решение экспоненциально устойчиво в целом. 
+\end{description}
+
+\subsection{Теоремы обращения}
+\begin{description}
+ \item[Теорема Персидского.] Пусть $f(t,x)\in C^{1,1}([t_0,+\infty)\times\bbr^n)$. Пусть нулевое решение устйочиво по Ляпунову. Тогда существует $V(t,x)\in C^{1,1}$, удовлетворяющая условиям теоремы Ляпунова о устойчивости.
+ \item[Теорема Массера.] Пусть выполнено одно из условий:
+\begin{enumerate}
+\item $f(t,x)$ не зависит от $t$;
+\item $f(t,x)$ периодична по $t$;
+\item $f(t,x)$ линейна по $x$.
+\end{enumerate}
+Тогда, если нулевое решение асимптотически устойчиво, то существует $V\in C^{1,1}$, удовлетворяющая условиям теоремы Ляпунова о асимптотической устойчивости.
+\end{description}
+\section{Теория функций комплексного переменного}
+\subsection{Некоторые функции комплексного переменного}
+\begin{description}
+\item[Формула Эйлера.] $e^{i\varphi} = \cos(\varphi) + i\sin(\varphi)$
+\item[Формула де Муавра.] $(\cos(\varphi) + i\sin(\varphi))^n = \cos(n\varphi) + i\sin(n\varphi)$
+\item[Формула корней.] Существует ровно $n$ корней $n$-й степени из комплексного числа $z = |z|(\cos(\varphi) + i\sin(\varphi)),$определяемых формулой: $$\sqrt[n]{z} = \sqrt[n]{|z|}\left(\cos\left(\dfrac{\varphi + 2\pi k}{n}\right)+ i\sin\left(\dfrac{\varphi + 2\pi k}{n}\right)\right),$$ где $k = 0,1,\ldots,n-1$.
+\end{description}
+Пусть $z= x+ iy.$
+\begin{description}
+\item[Комплексная экспонента.] $e^z = e^x(\cos(y) + i\sin(y))$. Эта функция имеет период $2\pi i$.
+\item[Комплексные синус и косинус.] $\sin(z)= \dfrac{e^{iz}-e^{-iz}}{2i}$, $\cos(z)= \dfrac{e^{iz}+e^{-iz}}{2}$. Эти функции не ограничены на множестве комплексных чисел.
+\item[Большой Логарифм.] Ln$(z) = \ln(|z|) + i\arg(z) + 2\pi i k$, $k$ - целое.
+\item[Степенная функция.] $z^x = \exp(x$Ln$(z))$.
+\item[Большой Арккосинус.] Arccos$(z) = \dfrac{\text{Ln}(z + \sqrt{z^2-1})}{i}$.
+\item[Большой Арктангенс.] Arctg$(z) =\dfrac{1}{2i}$Ln$\left(\dfrac{1+zi}{1-zi}\right)$.
+\end{description}
+\subsection{Свойства аналитических функций}
+Однознаная функция $f(z)$ называется \emph{аналитической} в области $D$, если она дифференцируема в каждой точке этой области.
+
+Свойства аналитической в области $D$ функции $f(z)$:
+\begin{description}
+\item[Условия Коши-Римана.] Функция $f(z) = u(x,y) + iv(x,y)$ дифференцируема в точке $x_0+iy_0$ тогда и только тогда, когда функции $u(x,y)$ и $v(x,y)$ дифференцируемы в ней, и выполняются соотношения:
+$$
+\begin{cases}
+ u'_x(x_0,y_0) = v'_y(x_0,y_0), \\ u'_y(x_0,y_0) = -v'_x(x_0,y_0).
+\end{cases}
+$$
+\item [Гармоничность.] Функция $f(z)$ бесконечное число раз дифференцируема, причем $\Delta u(x,y) = 0, \Delta v(x,y) = 0$, где $\Delta$ - оператор Лапласа.
+\item[Принцип максимума модуля.] Пусть $M = \sup\limits_{z\in D}|f(z)|$. Если $f(z)$ - не тождественная константа, то $|f(z)| < M$  $\forall z\in D$.
+\item[Теорема Лиувилля.] Если $|f(z)| \leqslant A|z|^\alpha$ ($A,\alpha$ - константы), то $f(z)$ - многочлен степени не выше  целой части $\alpha$.
+\item[Теорема Морера.] Пусть функция $f(z)$ непрерывна в односвязной области $D$, и интеграл по любому замкнутому контуру, целиком лежащему в этой области, равен нулю. Тогда $f(z)$ аналитична в $D$.
+\item[Интегральная теорема Коши.] Пусть $f(z)$ аналитична в $D$. Тогда
+\begin{enumerate}
+ \item Если $D$ односвязно, то для любого замкнутого контура $C\in D$ $$\oint\limits_{C}f(z)dz=0.$$
+ \item Если $D$ ограничена и ее граница $\Gamma$ состоит из конечного числа кривых, а $f(z)$ непрерывна в замыкании $D$, то $\oint\limits_{\Gamma}f(z)dz = 0.$ 
+\end{enumerate}
+
+\item[Интегральная формула Коши.] Пусть $f(z)$ аналитична в $D$, $С$ - замкнутый контур, целиком лежащий в $D$, ограничивающий область $D'$. Тогда $\forall z_0 \in D' $ $$f(z_0) = \dfrac{1}{2\pi i}\oint\limits_{C}\dfrac{f(\xi)d\xi}{\xi-z_0},\  f^{(n)}(z_0) = \dfrac{n!}{2\pi i}\oint\limits_{C}\dfrac{f(\xi)d\xi}{(\xi-z_0)^{n+1}}.$$
+\item[Внутреняя теорема единственности.] Пусть $f(z),g(z)$ аналитичны в $D$, и существует последовательность $\{z_n\}, z_i \neq z_j$, имеющая предельную точку. Тогда, если\footnote{Для выполнения теоремы достаточно требовать совпадения значений функций на любом множестве ненулевой лебеговой меры.} $f(z_n) = g(z_n)$, то $f(z) = g(z)\ \forall z\in D$.
+\end{description}
+\subsection{Функциональные и степенные ряды}
+\begin{description}
+ \item[Первая теорема Вейерштрасса.] Пусть функции $f_n(z)$ аналитичны в $D$, и $f_n(z)$ сходится равномерно к $f(z)$ внутри $D$. Тогда:
+\begin{enumerate}
+ \item $f(z)$ аналитична в $D$.
+ \item $\forall k=1,2,...:\ f^{(k)}(z) = \sum\limits_{n=1}^{\infty}f_n^{(k)}(z)$.
+ \item $\sum\limits_{n=1}^{\infty}f_n^{(k)}(z)$ сходится равномерно внутри $D$.
+\end{enumerate}
+
+ \item[Вторая теорема Вейерштрасса.] Пусть $D$ - замкнутая ограниченная область, ее граница - контур. Тогда, если $\forall n \ f_n(z)$ аналитична в $D$ и непрерывна на ее замыкании, то ряд $\sum\limits_{n=1}^{\infty}f_n(z)$ сходится к функции, аналитичной в $D$  и непрерывной на ее замыкании. 
+\end{description}
+
+Рассмотрим степенной ряд $\sum\limits_{n=1}^{\infty}a_n(z-z_0)^n $ (1). пусть $R = \dfrac{1}{T}$, где $T$ - верхний предел последовательности $\{\sqrt[n]{(|a_n|)}\}$ (радиус сходимости).
+
+\begin{description}
+ \item[Теорема Коши-Адамара.] Пусть $R = \dfrac{1}{T}$, где $T$ - верхний предел последовательности $\{\sqrt[n]{(|a_n|)}\}$. Тогда:
+\begin{enumerate}
+ \item $R =0.$ Тогда (1) сходится только в $z_0$.
+ \item $R=\infty$. Тогда (1) сходится абсолютно на множестве всех комплесных чисел и равномерно внутри него.
+ \item $0 < R <\infty$. Тогда (1) сходится абсолютно в круге $|z-z_0| < R$, равномерно внутри него, и расходится снаружи.
+\end{enumerate}
+
+ \item[Теорема.] Если $0 < R <\infty$, то у ряда (1) есть особая точка, лежащая на границе круга сходимости.
+\end{description}
+
+\subsection{Ряды Лорана. Классификация и.о.т.}
+Рядом Лорана с центром в точке $z_0$ называется ряд вида $\sum\limits_{n=-\infty}^{n=+\infty}a_n(z-z_0)^n$. (1); по определению, он сходится тогда и только тогда, когда сходятся ряды $\sum\limits_{n=0}^{n=+\infty}a_n(z-z_0)^n$ (2) и $\sum\limits_{n=-\infty}^{n= -1}a_n(z-z_0)^n$ (3). 
+
+Пусть $R$ - радиус сходимости ряда (2), а $r$ - верхний предел последовательности $\{\sqrt[n]{(|a_{-n}|)}\}$. Тогда (1) сходится равномерно внутри кольца $r < |z-z_0| < R$.
+
+\begin{description}
+ \item [Теорема Лорана.] Пусть $f(z)$ аналитична в области $a < |z-z_0| < b$. Тогда $f(z)$ можно единственным образом разложить в ряд Лорана, равномерно сходящийся к $f(z)$ внутри области разложения, т.е. $f(z) = \sum\limits_{n=-\infty}^{n=+\infty}a_n(z-z_0)^n$, $a < |z-z_0| < b$, причем коэффициенты $a_n$ можно вычислить по формуле 
+$$a_n = \dfrac{1}{2\pi i}\oint\limits_{|\xi-z_0|=\rho}\dfrac{f(\xi)d\xi}{(\xi-z_0)^{n+1}},$$ где $\rho$ - произвольно.
+\end{description}
+Точка $z_0$ - изолированная особая точка функции $f(z)$, если $f(z)$ аналитична в некоторой ее проколотой окрестности $U_{z_0}^0$; пусть (1) - разложение $f(z)$.
+
+\paragraph{Классификация и.о.т. по коэффициентам (1)}
+
+\begin{description}
+ \item[Устранимая и.о.т.:]  ${a_n = 0, \ \forall n > 0}$. Это равносильно тому, что $|f(z)|$ ограничен в $U_{z_0}^0$ или что $f(z)$ имеет конечный предел в $z_0$.
+ \item[Полюс порядка $k$:] $a_{-k} \neq 0, a_{-(k+1)}=a_{-(k+2)}=...=0$. Это равносильно тому, что $f(z)$ имеет бесконечный предел в точке $z_0$.
+ \item[Существенная и.о.т.:] Существует подпоследовательность $\{a_{n_k}\}$: $a_{n_k} \neq 0$. Это равносильно тому, что $f(z)$ не имеет конечного или бесконечного предела в точке $z_0$.
+\end{description}
+\textbf{Теорема Сохоцкого-Вейерштрасса.} Замыкание множества значений функции в любой окрестности существенно особой и.о.т. совпадает с расширенной комплексной плоскостью.
+
+% \textbf{Большая теорема Пикара.} Если $z_0$ --- существенно особая точка $f(z)$, то $\forall A\in\bbc$ существует последоватльность $z_n:\, \ \lim\limits_{n\to\infty} =z_0,\ \lim\limits_{n\to\infty}f(z_n) = A$
+
+\subsection{Вычеты}
+Пусть $f(z)$ аналитична в некоторой окрестности $U_{z_0}^{o}$ точки $z_0$, $C$ - контур в $z_0$, $z_0\in \text{int} C$. Тогда вычетом функции $f(z)$ в $z_0$ называется число $\res_{z = z_0}f(z) = \dfrac{1}{2\pi i}\oint\limits_{C}f(z)dz$. 
+\begin{enumerate}
+\item\textbf{Теорема о вычетах.} Пусть $f(z)$ аналитична в области $D$ за исключением конечного числа точек $z_1,z_2,...,z_n,$ и непрерывна на замыкании этого множеcтва. Тогда, если граница области  - контур $C$, то
+$$\oint\limits_{C}f(z)dz = 2\pi i\sum\limits_{k=1}^{n}\res_{z = z_k}f(z).$$
+
+\item Вычет функции в точке равен минус первому коэффициенту в разложении функции в ряд Лорана в этой точке.
+\item Пусть $z_0$ -полюс порядка $k$. Тогда $\res_{z = z_0}f(z) = \dfrac{1}{(k-1)!}\lim\limits_{z\to z_0}(f(z)(z-z_0)^k)^{(k-1)}$.
+\item Если $f(z) = \dfrac{f_1(z)}{f_2(z)},\ f_1(z_0) \neq 0, z_0$- простой ноль $f_2(z)$, то $\res_{z = z_0}f(z) = \dfrac{f_1(z_0)}{f_2'(z_0)}$.
+\end{enumerate}
+\subsection{Вычисление определенных интегралов}
+
+\begin{enumerate}
+ \item $\int\limits_{0}^{2\pi}R(\sin(\varphi),\cos(\varphi))d\varphi$, $R(a,b)$ - рациональная функция\footnote{Определение рациональной функции см. в разделе ``Вычисление непоределнных интегралов``}. Замена $z=e^{i\varphi}$.
+\item v.p.$\int\limits_{-\infty}^{+\infty}f(x)dx =2\pi i\sum\limits_{k=1}^{n}\res_{z=z_k}f(z)$, где $f(z)$:
+\begin{enumerate}
+\item Аналитична на множестве $\{\text{Im } z > 0\} \setminus \{z_1,\ldots,z_n\}$ (Im $z_k$ > 0);
+\item Непрерывна на множестве $\{\text{Im } z \geqslant 0 \} \setminus \{z_1,\ldots,z_n\}$;
+\item $f(z) = o\left(\dfrac{1}{z}\right),\ z\to\infty (\text{Im } z >0)$.
+\end{enumerate}
+\item v.p.$\int\limits_{-\infty}^{+\infty}f(x)e^{iax}dx =2\pi i\sum\limits_{k=1}^{n}\res_{z=z_k}f(z)e^{iax}$, где:
+\begin{enumerate}
+\item $a > 0$;
+\item $f(z)$ аналитична на множестве $\{\text{Im } z > 0\} \setminus \{z_1,\ldots,z_n\}$ (Im $z_k$ > 0);
+\item $f(z)$ непрерывна на множестве $\{\text{Im } z \geqslant 0 \} \setminus \{z_1,\ldots,z_n\}$;
+\item $\lim\limits_{z\to \infty}f(z) = 0$.
+\end{enumerate}
+\item $\int\limits_{0}^{+\infty}x^{\alpha-1}f(x)dx = \dfrac{2\pi i}{1-\exp(2\pi i \alpha)} \sum\limits_{k=1}^{n}\res_{z=z_k}f(z)z^{\alpha-1}$, где
+\begin{enumerate}
+\item $\alpha \in (0,1)$;
+\item $f(z)$ аналитична на множестве всех комплекных чисел с выкинутым положительным направлением оси абсцисс и точек $z_1,...z_n$;
+\item $f(z)$ непрерывна на множестве всех комплекных чисел с выкинутым положительным направлением оси абсцисс и точек $z_1,...z_n,(0,0)$;
+\item $|f(z)| \leqslant C_\delta|z|^{-\delta}$ при $z\to0$;
+\item $|f(z)| \leqslant C_{\delta_1}|z|^{-\delta_1-1}$ для сколь угодно малого $\delta_1$ при $z\to\infty$.
+\end{enumerate}
+\end{enumerate}
+
+\subsection{Логарифмические вычеты}
+
+Пусть $f(z)$ аналитична в области $D$, граница $\partial D$ - контур, $f(z) \neq 0,\ z\in\partial D$, $z_i,z_j^o\in D$, $i=1,n,\ j=1,k$, $z_i$ - полюс кратности $\beta_i$, $z_j^o$ - нуль порядка $\alpha_j$. Пусть $N=\sum\limits_{j=1}^{m}\alpha_j,\ P=\sum\limits_{i=1}^{n}\beta_j$. Тогда справедливо:.
+\begin{description}
+ \item[Теорема.] $\dfrac{1}{2\pi i}\oint\limits_{\partial D}\dfrac{f'(z)}{f(z)}dz = N - P$.
+ \item[Теорема Руше.] Пусть $D$ ограничена, а $f(z),g(z)$ аналитичны в $D$; при $z\in\partial D\ |f(z)| > |g(z)|$. Тогда число нулей $f(z)$ совпадает с числом нулей $f(z)+g(z)$.
+\item[Теорема.] Пусть $f(z)$ аналитична и однолистна в $D$. Тогда $\forall z \in D f'(z) \neq 0.$
+\end{description}
+\section{Преобразование Лапласа}
+\subsection{Свойства преобразования Лапласа}
+Пусть $f(t)$ определена на всей вещественной прямой и равна нулю при отрицательных значениях $t$. Тогда \textit{преобразованием Лапласа} называется функция комлексного переменного
+$$
+F(p) = \int\limits_0^{+\infty}e^{-pt}f(t)dt.
+$$
+Обозначение: $f(t) \rightleftharpoons F(p).$ Оно обладает следующими свойствами\footnote{Здесь ${\mathfrak h}(t)$ --- функция Хэвисайда.}:
+\begin{enumerate}
+ \item Первая теорема смещения. $\mathfrak{h}(t-a)f(t-a) \rightleftharpoons e^{-ap}F(p),\ a>0$.
+ \item Вторая теорема смещения. $\mathfrak{h}(t)f(t+a) \rightleftharpoons e^{ap}\left(F(p) - \int_0^\pi f(t)e^{-pt}dt \right),\ a > 0$.
+ \item Теорема подобия. $f(at) \rightleftharpoons \frac{1}{a}F\left(\frac{p}{a}\right);\ \frac{1}{a}f\left(\frac{t}{a}\right),\ a > 0$.
+ \item Дифференцирование оригинала. $\mathfrak{h}(t)f'(t) \rightleftharpoons pF(p) - f(+0); \ \mathfrak{h}(t)f^{(n)} \rightleftharpoons p^nF(p) - p^{n-1}f(+0) - p^{n-2}f'(+0)-\ldots-pf^{(n-2)}(+0)- f^{n-1}(+0)$.	
+ \item Дифференцирование изображения. $-tf(t) \rightleftharpoons F(p)$; $(-t)^nf(t) \rightleftharpoons F^{(n)}(p)$. 
+ \item Интегрирование оригинала. $\int_0^t f(\tau)d\tau \rightleftharpoons \frac{1}{p}F(p)$.
+ \item Интегрирование изображения. $\frac{f(t)}{t} \rightleftharpoons \int_p^{+\infty}F(z)dz$.
+ \item $[f*g](t) \rightleftharpoons F(p)G(p)$.
+ \item Пусть $f$ имеет период $T$. Тогда $f(t) \rightleftharpoons F(p) = \frac{1}{1-e^{-pt}}\int_0^T e^{-pt}f(t)dt$.
+\end{enumerate}
+\subsection{Преобразования некоторых функций}
+\begin{enumerate}
+ \item $\mathfrak{h}(t) \rightleftharpoons \frac{1}{p}$.
+ \item $ e^{\alpha t} \rightleftharpoons \frac{1}{p-\alpha}$.
+ \item $ \cos(\omega t) \rightleftharpoons \frac{p}{p^2 + \omega^2}$ при Re$(p) > |$Im$(\omega)|$.
+ \item $ \sin(\omega t) \rightleftharpoons \frac{\omega}{p^2 + \omega^2}$ при Re$(p) > |$Im$( \omega)|$.
+ \item $ t^\nu \rightleftharpoons \frac{\Gamma(\nu+1)}{p^{\nu+1}},\ \nu > -1$.
+ \item $\frac{A}{p-\lambda} \rightleftharpoons Ae^{\lambda t}$
+ \item Пусть $\lambda = \alpha + i\beta$. Тогда $\frac{B(p-\alpha) + C}{(p-\alpha)^2 + \beta^2} \rightleftharpoons Be^{\alpha t}\cos(\beta t) + \frac{C}{\beta}e^{\alpha t}\sin(Bt)$.
+\end{enumerate}
+\section{Классическая теория вероятностей}
+\subsection{Общие формулы}
+Рассмотрим вероятностное пространство $(\Omega,F,\Prb)$. Пусть множества $B_1,B_2,\ldots,B_n$ таковы, что $B_i \in F,\Prb (B_i) >0,B_iB_j = \varnothing, \bigcup\limits_{i=1}^{n} B_i = \Omega.$
+\begin{enumerate}
+\item \emph{(Формула полной вероятности.)} $\Prb(A) = \sum\limits_{i=1}^{n}\Prb(A|B_i)\Prb(B_i)$.
+\item \emph{(Формула Байеса.)} $\Prb(B_i|A) = \dfrac{\Prb(A|B_i)\Prb(B_i)}{\sum\limits_{j=1}^{n}\Prb(A|B_j)\Prb(B_j)}$.
+\end{enumerate}
+\subsection{Урновые схемы}
+Число исходов в вероятностных пространствах, основанных на выборе $n$ шаров из урны с $M$ шарами:
+
+\begin{tabular}{|c|c|c|}
+{\bfseries Выбор/Набор} & \bfseries{Упорядоченный} &{\bfseries Неупорядоченный}\\
+\hfill
+{\bfseries С возвращением} & {$M^n$} &{$C^n_{M+n-1}$}\\
+\hfill
+{\bfseries Без возвращения} & {$A_M^n$} &{$C_M^n$}\\
+\end{tabular}
+\section{Случайные величины}
+\subsection{Функции распределения}
+Функцией распределения случайной величины $\xi$ называется функция $F_\xi(x) = \Prb(\{\omega: \xi(\omega) < x\})$. При этом $$ F_\xi(x)= \begin{cases} \sum\limits_{k: x_k < x}\Prb(\xi = x_k),& \xi\text{ -дискретная с.в., } \\ \int\limits_{-\infty}^{x}f(x)dx,& \xi \text{-непрерывная с.в. с плотностью } f(x).\end{cases} $$ Если с.в. не дискретная и не абсолютно-непрерывная, ее функция распределения считается по определению.
+
+Свойства функций распределения:
+\begin{enumerate}
+\item $0 \leqslant F_\xi(x) \leqslant 1.$
+\item Если $x \leqslant y$, то $F_\xi(x) \leqslant F_\xi(y)$.
+\item $\lim\limits_{x\to -\infty}F_\xi(x) = 0$, $\lim\limits_{x\to +\infty}F_\xi(x) = 1$.
+\item $F_\xi(x)$ непрерывна слева;
+\item $\Prb(a \leqslant \xi \leqslant b) = F_\xi(a) - F_\xi(b)$.
+\item $\Prb(\xi = x) = F_\xi(x+0) - F_\xi(x)$.
+\item \emph{(Формула свертки.)}$\xi, \eta $ - независимые с.в.; тогда $F_{\eta+\xi}(z) = \int\limits_{-\infty}^{+\infty}F_\xi(z-x)dF_\eta(x)$.
+\end{enumerate}
+
+\subsection{Нахождение плотностей и функций распределения а.-н. с.в.}
+Пусть абсолютно-непрерывные с.в. $\xi$ и $\eta$ имеют плотности $f_\xi(x)$ и $f_\eta(x)$.
+
+\begin{enumerate}
+ \item Пусть $\varphi(x)$ определена на множестве вида $\sum\limits_{k=1}^{n}[a_k,b_k]$, причем на каждом открытом интервале $(a_k,b_k)$ она строго монотонна и непрерывно-дифференцируема. Тогда плотность с.в. $\varphi(\xi)$ выражается как 
+$$f_{\varphi(\xi)}(x) = \sum\limits_{k=1}^{n}f_\xi(\varphi^{-1}_k(x))|(\varphi^{-1}_k(x))'|I_{D_k}(x), $$ где $D_k$ - область определения функции $\varphi^{-1}_k(x)$, а $I$ - индикатор. 
+\item $f_{\xi+\eta}(x) = \int\limits_{-\infty}^{+\infty}f_\xi(x-y)f_\eta(y)dy$.
+ \item $F_{\xi\eta}(z) = \iint\limits_{x,y: xy \leqslant z}f_\eta(x)f_\xi(y)dxdy$.
+ \item $F_{\dfrac{\xi}{\eta}}(z) = \iint\limits_{x,y: x/y \leqslant z}f_\eta(x)f_\xi(y)dxdy$.
+\item $f_{\xi\eta}(x) = \int\limits_{-\infty}^{+\infty}f_{\eta}\left(\dfrac{x}{z}\right)f_\xi(z)\dfrac{dz}{|z|}$.
+\item $f_{\dfrac{\xi}{\eta}}(x) = \int\limits_{-\infty}^{+\infty}f_{\eta}(xz)f_\xi(z)|z|dz$.
+\end{enumerate}
+\subsection{Математическое ожидание и дисперсия}
+Математическим ожиданием с.в. $\xi$ называется число $\E\xi = \int\limits_\Omega \xi(\omega)d\omega$. При этом $$\E\xi = \begin{cases} \sum\limits_{k}x_k\Prb\{\xi = x_k\},  & \xi \text{-дискретная с.в.,}\\ \int\limits_{-\infty}^{+\infty}xf_\xi(x)dx,& \xi \text{-абсолютно-непрерывная с.в.}, \end{cases}$$
+при этом в случае ряда или несобственного интеграла должна иметь место абсолютная сходимость.
+
+Свойства математического ожидания:
+\begin{enumerate}
+\item $\E c = c$, где $c$ - постоянная.
+\item $\E(a\xi + b\eta) = a\E\xi + b\E\eta$, где $a,b$ - постоянные.
+\item $\E\varphi(\xi) = \int\limits_{-\infty}^{+\infty}\varphi(x) dF_\xi(x) = \begin{cases} \sum\limits_i \varphi(x_i)\Prb(\xi=x_i),& \xi\text{ дискретна,}\\ \int\limits_{-\infty}^{+\infty}\varphi(x)f_\xi(x)dx, & \xi \text{ абсолютно-непрерывна.} \end{cases}$
+\item $\xi_1,\xi_2,\ldots,\xi_n$ - независимые с.в. с конечными математическими ожиданиями. Тогда
+$\E\prod\limits_{k=1}^{n}\xi_k =\prod\limits_{k=1}^{n}\E\xi_k$.
+\end{enumerate}
+Дисперсией с.в. $\xi$ называется число $\D\xi = \E(\xi - \E\xi)^2 = \E(\xi^2)-(\E\xi)^2$. Свойства дисперсии:
+\begin{enumerate}
+\item $\D\xi \geqslant 0$.
+\item $\D c\xi = c^2\D\xi$, $c$ - постоянная величина.
+\item $\D(\xi+\eta) = \D\xi+\D\eta +2\text{cov}(\xi,\eta)$, где $\text{cov}(\xi,\eta) = \E\xi\eta - \E\xi\E\eta$ - ковариация с.в. $\xi$ и $\eta$ (если с.в. независимы, то их ковариация равна нулю. Обратное, вообще говоря, не верно).
+\end{enumerate}
+\section{Числовые характеристики случайных величин}
+\subsection{Неравенства}
+\begin{description}
+\item[Неравенство Маркова.] $\Prb\{\omega:\xi(\omega) \geqslant \varepsilon\}
+\leqslant \dfrac{\E\xi}{\varepsilon}$  $(\xi \geqslant 0)$.
+\item [Неравенство Чебышева.] $\Prb\{\omega:|\xi(\omega) -\E\xi| \geqslant \varepsilon\} \leqslant \dfrac{\D\xi}{\varepsilon^2}$.
+\item [Неравенство Ляпунова.] $|\E\xi - \text{med}\xi| \leqslant \sqrt{\D\xi}$.
+\item [Неравенство Йенсена.] Пусть $g(x)$ - выпуклая функция, $h(x)$ - вогнутая функция; тогда $\E g(\xi) \geqslant g(\E\xi), \E h(\xi) \leqslant h(\E\xi)$.
+\item [Неравенство Колмогорова.] Пусть $\xi_1,\xi_2,\ldots,\xi_n$ - последовательность одинаково распределенных с.в. c нулевыми мат.ожиданиями и конечными дисперсиями. Тогда
+$$\Prb(\max\limits_{k \leqslant n}|\xi_1 + \ldots + \xi_n| \geqslant \varepsilon) \leqslant \dfrac{1}{\varepsilon^2}\sum\limits_{j=1}^{n}\D\xi_j.$$
+\end{description}
+\subsection{Производящие и характеристические функции}
+\emph{Производящей функцией} дискретной с.в.$\xi$ называется функция комплексного аргумента $\varphi(z) = \E z^\xi$, $|z| < 1$. Свойства производящей функции:
+\begin{enumerate}
+ \item $\varphi_\xi'(1) = \E\xi$; $\varphi_\xi^{(k)}(1) = \E[\xi(\xi-1)(\xi-2)\ldots(\xi-k+1)].$
+ \item $\varphi_{\{a\xi+b\}}(z) = z^b\varphi(z^a).$
+ \item Производящую функцию может иметь только та с.в., которая раскладывается в ряд с суммой коэффициентов, равной 1.
+\end{enumerate}
+
+\emph{Характеристической функцией} с.в.$\xi$ называется функция вещественного аргумента $f_\xi(t) =\E e^{it\xi}$. Свойства характеристической функции:
+\begin{enumerate}
+\item $|f_\xi(t)| \leqslant 1$.
+\item $f_\xi(0) = 1$.
+\item $f_\xi(t)$ равномерно непрерывна.
+\item $f_{a\xi+b}(t)=e^{ibt}f_\xi(at)$.
+\item $f_\xi(-t) = f_{-\xi}(t) = \overline{f_\xi(t)}$.
+\item Если $f_\xi(t)$ принимает вещественные значения, то с.в. $\xi$ имеет такое же распределение, что и $-\xi$.
+\item $\xi_1,\xi_2,\ldots,\xi_n$ - независимые с.в.; тогда $f_{\xi_+\xi_2+\ldots+\xi_n}(t) = \prod\limits_{j=1}^{n}f_{\xi_j}(t)$.
+\item Если у с.в. $\xi$ существует момент $k$-го порядка ($\E(\xi)^k$), то характеристическая функция $k$ раз дифференцируема в нуле, причем $f_\xi^k(0)=i^k\E(\xi)^k$.
+\item Пусть $m \geqslant 1, k = 2m$. Тогда из $k$-раз диффиренцируемости в нуле характеристической функции  вытекает существование момента $k$-го порядка.
+\item Если $\E|\xi^k| < \infty$, то $f_\xi(t) = \sum\limits_{n=0}^{k}\E(\xi^n) + R_k(t)$, $R_k(t) = o(t^k), t\to\infty$.
+\end{enumerate}
+\subsection{Свойства многомерного нормального распределения}
+Плотность нормальной случайной велечины с мат.ожиданием $m$ и матрицей ковариацией (дисперсией) $R$ имеет вид:
+$$
+f(x) = (2\pi)^{n/2}\dfrac{1}{\sqrt{\det R}}\exp\left(-\dfrac{1}{2}\scalar{x-m}{R^{-1}(x-m)}\right).
+$$
+
+\textbf{Теорема.} Пусть $x,u,v$ ---  случайные векторы с своместным гауссовым распределением, причем $u,v$ --- независимы. Тогда $\E(x|u,v) = \E(x|u)+\E(x|v)-\E x$.
+
+\textbf{Теорема.} Пусть $x,y$ --- случайные векторы, такие, что $[x; y]^T$ имеет нормальное распределение с м.о. $[m_x; m_y]^T$ и матрицей ковариаций $R = \begin{bmatrix} R_x & R_{xy}\\ R_{yx} & R_y \end{bmatrix}$. Тогда вектор $z = x - m_x - R_{xy}R_y^{-1}(y-m_y)$ имеет нулевое м.о.  и ковариацию $R_z = R_x-R_{xy}R_y^{-1}R_{yx}$.
+\section{Таблица свойств распределений случайных величин}
+\subsection{Дискретные случайные величины}
+\begin{tabular}{|c|c|c|c|}
+{\bfseries Имя распределения} & $\mathbf P(\xi = k)$ & {\bfseriesМат.ожидание}&{\bfseriesДисперсия}\\
+\hfill
+Bi$(n,p)$(Биноминальное) & $C_n^kp^k(1-p)^k$ & $np$ & $np(1-p)$\\
+Pois$(\lambda)$(Пуассоновское) & $e^{-\lambda}\dfrac{\lambda^k}{k!}$ & $\lambda$&$\lambda$\\
+$\mathfrak{G}(p)$ (Геометрическое)& $(1-p)^{k-1}p$& $\dfrac{1}{p}$ & $\dfrac{1}{sp^2}$ \\
+\end{tabular}
+
+\begin{tabular}{|c|c|c|}
+{\bfseries Имя распределения} & \bfseries{Хар.функция}&{\bfseries Произв.функция}\\
+Bi$(n,p)$(Биноминальное) & $(1+p(e^{it}-1))^n$ & $(1+p(z-1))^n$ \\
+
+Pois$(\lambda)$(Пуассоновское) & $ \exp\{\lambda(e^{it}-1)\}$&$\exp\{\lambda(z-1)\}$ \\
+$\mathfrak{G}(p)$ (Геометрическое )& $\dfrac{1-p}{1-pe^{it}}$& $\dfrac{1-p}{1-pz}$\\
+\end{tabular}
+\begin{enumerate}
+\item Если $\xi_1 \in Bi(n_2,p),\xi_2 \in Bi(n_1,p))$, то $(\xi_1+\xi_2) \in Bi(n_1+n_2,p)$.
+\item Если $\xi_1 \in$ Pois$(\lambda_1),\xi_2 \in $ Pois$(\lambda_2)$, то $(\xi_1+\xi_2) \in $ Pois$(\lambda_1 + \lambda_2)$.
+\end{enumerate}
+
+\subsection{Абсолютно-непрерывные случайные величины}
+\begin{tabular}{|c|c|c|c|}
+{\bfseries Имя распределения} & \bfseries{Плотность} &{\bfseries Мат.ожидание} &{\bfseriesДисперсия}\\
+\hfill
+R$[a,b]$(Равномерное) & $\begin{cases} \dfrac{1}{b-a}, x\in[a,b] \\ 0,x\notin[a,b] \end{cases}$& $\dfrac{b-a}{2}$ & $\dfrac{(a-b)^2}{12}$\\
+Exp$(\lambda)$(Показательное, $\lambda>0$) & $\begin{cases} \lambda e^{-\lambda x}, x \geqslant 0 \\ 0, x <0 \end{cases}$ & $\dfrac{1}{\lambda}$&$\dfrac{1}{\lambda^2}$\\
+N$(a,\sigma^2)$ (Нормальное, $\sigma>0$)& $\dfrac{1}{\sqrt{2\pi}\sigma}\exp\left\lbrace -\dfrac{(x-a)^2}{2\sigma^2}\right\rbrace $& $a$ &$\sigma^2$\\
+K$(a,b)$(Расп.Коши, $a,b >0$) & $\dfrac{b}{\pi(b^2 + (x-a)^2)}$& -& -\\
+$\Gamma(\theta,\lambda)$ (Гамма-расп., $\theta,\lambda > 0$) & $\begin{cases} \dfrac{x^{\lambda-1}e^{-x/\theta}}{\Gamma(\lambda)\theta^\lambda}, x \geqslant 0 \\ 0,x < 0 \end{cases}$& $\theta\lambda $ & $\theta^2\lambda(\lambda-1)$
+\end{tabular}
+
+\begin{tabular}{|c|c|}
+{\bfseries Имя распределения} & \bfseries{Хар.функция}\\
+\hfill
+R$[a,b]$(Равномерное) & $\dfrac{e^{itb}-e^{ita}}{it(b-a)}$ \\
+Exp$(\lambda)$(Показательное, $\lambda>0$) & $\dfrac{\lambda}{\lambda - it}$\\
+N$(a,\sigma^2)$ (Нормальное, $\sigma>0$)&  $\exp\left\lbrace ita - \dfrac{\sigma^2t^2}{2}\right\rbrace$\\
+K$(a,b)$(Распред.Коши, $a,b >0$) & $\exp\left\lbrace ita - b|t|\right\rbrace$ \\
+$\Gamma(\theta,\lambda)$ (Гамма-расп., $\theta,\lambda > 0$) & $(1 - it\theta)^{-\lambda}$
+\end{tabular}
+
+\begin{enumerate}
+ \item Если $\xi_1 \in \Gamma(\theta,\lambda_1),\xi_2 \in \Gamma(\theta,\lambda_2)$, то $(\xi_1+\xi_2) \in \Gamma(\theta,\lambda_1+\lambda_2)$.
+ \item Если $\xi_1 \in N(a_1,\sigma_1),\xi_2 \in N(a_2,\sigma_2)$, то $(\xi_1+\xi_2) \in N(a_1+a_2,\sigma_1 + \sigma_2)$.
+\end{enumerate}
+\section{Предельные теоремы}
+
+Пусть $\Phi(x) = \dfrac{1}{\sqrt{2\pi}}\int\limits_{-\infty}^{x}e^{-\frac{u^2}{2}}du$.
+
+\begin{description}
+ \item[Теорема Муавра-Лапласа.] Пусть с.в. $\xi$ имеет биноминальное распределение с параметрами $n$ и $p$,$p\in(0,1)$. Тогда при $n\to\infty$ $$\Prb\left(a \leqslant \dfrac{\xi - np}{\sqrt{np(1-p)}} \leqslant b\right) \to \Phi(b) - \Phi(a).$$
+
+Пусть $\xi_1,\xi_2,\ldots,\xi_n$ - независимые одинаково распределенные с.в., $\E\xi_i = a$.
+
+\item[Закон больших чисел.] $\dfrac{1}{n}\sum\limits_{j=1}^{n}\xi_j \to a$ при $n\to+\infty$ по вероятности.
+\item[Центральная предельная теорема.] Пусть $0 \leqslant\D\xi_i = \sigma\leqslant +\infty$, $S_n = \xi_1 + \xi_2 +\ldots+\xi_n$. Тогда $\Prb\left(\dfrac{S_n - na}{\sigma\sqrt{n}} < x\right) \to \Phi(x)$ при $n \to \infty$, причем эта сходимость равномерна по $x$.
+\end{description}
+
+Пусть $\xi_1,\xi_2,\ldots,\xi_n$ - независимые с.в., $\E\xi_i = a_i,\ \D\xi_i = \sigma_i,\ S_n = \sum\limits_{k=1}^{n}\xi_k,\ A_n = \sum\limits_{k=1}^{n}a_n,\ B_n=\sum\limits_{k=1}^{n}\sigma_n^2$.
+
+Рассмотрим три условия:
+\begin{enumerate}
+ \item \emph{(Условие Линдеберга)} $\forall \tau > 0$ при $n\to\infty$
+$$ \dfrac{1}{B_n^2}\sum\limits_{k=1}^{n}\int\limits_{|x-a_k| > \tau B_n}(x-a_k)^2dF_k(x)\to0;$$
+ \item $\forall \varepsilon > 0\ \max\limits_{k=1,2,\ldots,n}\Prb\left(\dfrac{\xi_k - a_k}{B_n}>\varepsilon \right)\to 0$ при $n\to\infty$.
+\item$\Prb\left(\dfrac{S_n - A_n}{B_n} < x\right)\to \Phi(x)$ при $n \to \infty$
+\end{enumerate}
+\begin{description}
+ \item [Теорема Линдеберга-Феллера.] Условия (1) и (2) имеют верны тогда и только тогда, когда верно условие (3).
+ \item[Теорема Ляпунова.] Если при $n\to\infty$   $\dfrac{\sum\limits_{k=1}^{n}{n}\E|\xi_k-a_k|^3}{B_n^3}\to 0$, то верно условие (3).
+\end{description}
+
+\section{Точечное оценивание}
+\subsection{Несмещенные и состоятельные оценки}
+Пусть $X_1,X_2,\ldots,X_n$ - независимые, одинаково распределенные с.в.; тогда случайный вектор $X=(X_1,X_2,\ldots,X_n)$ называется выборкой. Пусть функция распределения с.в. зависит от параметра $\theta,\theta \in \Theta.$ 
+
+\emph{Несмещеннной оценкой} некоторой функции $\tau(\theta)$ называется функция от выборки $T_n(X)$, т.ч. $\E T_n(X) = \tau(\theta)$.
+
+Оценка называется \emph{состоятельной}, если имеет место сходимость по вероятности $\lim\limits_{n\to\infty}T_n(\theta) = \tau(\theta)$. Для этого достаточно, что бы $\E T_n \to \tau(\theta)$, и $\D T_n(X) \to 0$ при $ n\to \infty$.
+
+Отметим, что:
+\begin{enumerate}
+\item Несмещенная оценка может не существовать.
+\item Несмещенная оценка, как и состоятельная оценка, не единственна.
+\item Несмещенная оценка может не являться состоятельной, а состоятельная - несмещеннной.
+\end{enumerate}
+
+\subsection{Информация Фишера}
+Функцией правдоподобия выборки $X=(X_1,X_2,\ldots,X_n)$ называется функция 
+$$L(X,\theta) = \begin{cases} \prod\limits_{i=1}^{n}p_\theta(X_i), \text{где $p_\theta(x)$ - плотность, если с.в. абсолютно-непрерывны;} \\\Prb(X_1 = x_1,X_2 = x_2, \ldots, X_n = x_n; \theta),  \text{если с.в. дискретны}.
+\end{cases}$$
+
+Функцией вклада называется случайная велечина $U(X,\theta) = \dfrac{\partial \ln L(X,\theta)}{\partial \theta}$. (Отметим, что $\E U(X,\theta) =0.$) 
+
+Информацией Фишера выборки называется велечина $i_n(\theta) = \D_\theta U(X,\theta).$ При этом $i_n(\theta) = ni_1(\theta)\equiv ni(\theta).$  Информацию Фишера по одному наблюдению $i(\theta)$ можно найти так: $i(\theta) = - \E_\theta \dfrac{\partial^2 \ln p_\theta(x_1,\theta)}{\partial\theta^2}.$
+
+\begin{tabular}{|c|c|}
+{\bfseries Имя распределения} & \bfseries{Информация Фишера по одному наблюдению}\\
+N($\theta,\sigma^2$)& $1/\sigma^2$ \\
+N($\mu,\theta^2$)& $2/\theta^2$ \\
+$\Gamma(\theta,\lambda)$& $\lambda/\theta^2  $\\
+K($\theta$)& 1/2\\
+Bi($m,\theta$)& $m/(\theta(1-\theta))$ \\
+Pois($\theta$)& $1/\theta$\\
+\end{tabular}
+\subsection{Оптимальные и эффективные оценки}
+Оценка $T^*(X)$ называется оптимальной, если она несмещенна и имеет равномерно-минимальную дисперсию в классе несмещенных оценок. (Т.е. $\forall T(X), \E T(x) = \tau(\theta), \forall \theta \in \Theta, \D T(X) \leqslant \D T^*(X)$.)
+
+
+{\bfseries Теорема Рао-Крамера.} Пусть функция правдоподобия выборки $L(X,\theta)$ такова, что для некоторой $g(x)$ $\int g(x)L(X,\theta)\mu(dx) = \tau(\theta)$, и это равенство можно дифференцировать, причем $\tau'(\theta) = \int g(x)\dfrac{\partial L(X,\theta)}{\partial\theta}\mu(dx)$. Тогда:
+\begin{enumerate}
+ \item Для любой несмещенной оценки $T(X),\forall \theta\in\Theta, \D T(X) \geqslant \dfrac{(\tau^2(\theta))'}{ni(\theta)}.$
+ \item Равенство в п.1 достигается тогда и только тогда, когда существует такая функция $A(\theta),$ что $T(X) - \tau(\theta) = A(\theta)U(X,\theta)$. В таком случае оценка называется эффективной.
+\end{enumerate}
+
+{\bfseries Критерий эффективности.} Эффективная оценка для функции $\tau(\theta)$ существует тогда и только тогда, когда плотность распределения (или вероятность в случае дискретной с.в. ) одного наблюдения принадлежит экспотенциальному семейству, т.е. $f(x,\theta) = \exp(A(\theta)B(x) + C(\theta) + D(x))$, причем $\tau(\theta) = - \dfrac{C'(\theta)}{D'(\theta)}, T^*(X) = \dfrac{1}{n}\sum\limits_{i=1}^{n}B(X_i),\ \D T^*(X) = \dfrac{\tau'(\theta)}{nA'(\theta)}, i(\theta) = \tau'(\theta)A'(\theta).$
+
+В следующей таблице $\overline{X} = \dfrac{1}{n}\sum\limits_{i=1}^{n}X_n$ (выборочное среднее).
+
+\begin{tabular}{|c|c|c|c|}
+{\bfseries Модель} & \bfseries{$\tau(\theta)$} &\bfseries{$T^*(X)$} & \bfseries{$\D T^*(X)$}\\
+N($\theta,\sigma^2$)& $\theta$ & $\overline{X}$ & $\sigma^2/n$\\
+N($\mu,\theta^2$)& $\theta^2$ & $\dfrac{1}{n}\sum\limits_{i=1}^{n}(X_i-\mu)^2$ & $ 2\theta^4/n$\\
+$\Gamma(\theta,\lambda)$ & $\theta$ & $\overline{X}/\lambda$ & $\theta^2/\lambda n$\\
+$\Gamma(a,\theta)$ & $\Gamma'(\theta)/\Gamma(\theta) $ & $\frac{1}{n}\sum\limits_{i=1}^{n}\ln X_i - \ln a$ & $\tau'(\theta)$\\
+Bi($m,\theta$)& $\theta$ & $\overline{X}/m$ &  $\theta(1-\theta)/mn $\\
+Pois($\theta$)& $\theta$ & $\overline{X}$ & $\theta/n$\\
+\end{tabular}
+\subsection{Достаточные и полные оценки}
+Оценка $T(X)$ называется \emph{достаточной}, если  условная плотность распределения (вероятность в дискретном случае) выборки $X$(как случайного вектора) при условии $T(X) = t$ не зависит от $\theta$.
+
+{\bfseries Критерий факторизации.} Оценка достаточна тогда и только тогда, когда функция правдоподобия имеет вид $L(X,\theta) = g(T(X),\theta)h(X)$, где $g$ может зависеть от элементов выборки только через $T(X)$.
+
+Отметим, что всякая эффективная оценка является достаточной.
+
+{\bfseries Теорема Рао-Блекуэлла-Колмогорова.} Оптимальная оценка, если существует, является функцией от достаточной оценки. При этом ее можно искать как $\E (T_1 | T),$ где $T_1$ - любая несмещенная оценка $\tau(\theta).$
+
+Достаточная оценка называется \emph{полной}, если для любой функции $\varphi(T(X))$ из того, что $\E \varphi(T(X)) = 0$ следует, что $\varphi(t) \equiv 0$ на всем множестве значений $T(X)$ (это понимается так: $\Prb (X \in \{x: \varphi(T(X)) \neq 0 \})=0, \forall \theta$).
+
+{\bfseries Теорема Лемана-Шеффе.} Пусть $T(X)$ -полная достаточная статистика. Тогда $T(X)$ является оптимальной оценкой $\tau(\theta)$ тогда и только тогда, когда $\E T(X) = \tau(\theta)$, $\forall \theta$.
+
+Отметим, что если не существует несмещенных оценок вида $g(T)$ ($g$ - некоторая функция), то их не существует вообще.
+
+\subsection{Методы построения оценок}
+\paragraph{Оценки максимального правдоподобия}
+
+\emph{Оценкой максимального правдоподобия} параметра $\theta$ называется такое значение параметра $\theta^*$, что $\sup\limits_{\theta\in\Theta} L(X,\theta) = L(X,\theta^*)$. При этом:
+\begin{enumerate}
+ \item Если о.м.п. существует и единственна, то она является функцией от достаточной статистики.
+ \item Если для измеримой функции $\tau$ существует обратная, то о.м.п. для $\tau(\theta)$ есть $\tau(\theta^*).$
+\end{enumerate}
+\paragraph{Метод моментов.}
+
+Пусть $A_k = \frac{1}{n}\sum\limits_{i=1}^{n}X_i^k$, $\mu_k(\theta) = \E X_i^k$. Тогда оценкой методом моментов $\hat{\theta}$ называется решение системы
+$$
+\begin{cases}
+A_1 = \mu_1(\theta),\\
+A_2 = \mu_2(\theta),\\
+...\\
+A_k = \mu_k(\theta).
+\end{cases}
+$$
+Замечания:
+\begin{enumerate}
+ \item При стремлении $n$ к бесконечности оценка методом моментов сходится по вероятности к оцениваемому параметру.
+\item Метод моментов менее точен, чем метод максимального правдоподобия.
+\item В роли моментов могут выступать квантили, медианы и т.д.
+\end{enumerate}
+\section{Множества и операции над ними}
+\begin{enumerate}
+\item $(A \bigcup B)\bigcap C = (A \bigcap C)\bigcup (B \bigcap C)$
+\item $(A \bigcap B)\bigcup C = (A \bigcup C)\bigcap (B \bigcup C)$
+\item $A \setminus (\bigcup\limits_{\alpha} B_\alpha) = \bigcap\limits_{\alpha}A\setminus B_\alpha$
+\item $A \setminus (\bigcap\limits_{\alpha} B_\alpha) = \bigcup\limits_{\alpha}A\setminus B_\alpha$
+\item $A \bigtriangleup B = (A \setminus B)\bigcup(B \setminus A)$
+\item $A \setminus B = A \bigcap \bar B = A \setminus (A \bigcap B)$
+\item $(A\bigcap B) \times C = (A\times C)\bigcap(B \times B) $
+\item $(A\bigcup B) \times C = (A\times C)\bigcup(B \times B)$
+\item $(A\bigcup C)\times(B\bigcup D) = (A \times B)\bigcup(A \times D)\bigcup(C \times B)\bigcup(C \times D)$
+\item $A \bigcup B= \overline{\bar A \bigcap \bar B}$
+\item $A \bigcap B= \overline{\bar A \bigcup \bar B}$
+
+Две последние формулы называются также \emph{формулами двойственности} или \emph{правилами Де Моргана}.
+\item \textit{Теорема Кантора-Бернштейна.} Пусть $A_1 \subseteq A,\ B_1 \subseteq B$. Тогда, если $A$ эквивалентно $B_1$ и $B$ эквивалентно $A_1$, то $A$ эквивалентно $B$.
+\item Пусть $A_1,A_2,\ldots,A_n,\ldots,$  --- открытые множества; тогда множества $\bigcup\limits_{k=1}^{\infty}A_k$ и $\bigcap\limits_{k=1}^{n}A_k$ тоже открыты.
+\item Пусть $A_1,A_2,\ldots,A_n,\ldots,$  --- замкнутые множества; тогда множества $\bigcup\limits_{k=1}^{n}A_k$ и $\bigcap\limits_{k=1}^{\infty}A_k$ тоже замкнуты.
+\end{enumerate}
+\section{Измеримые функции. Интеграл Лебега}
+\begin{description}
+ \item[Теорема Егорова.] Пусть $f_n \to f$ почти всюду, $f_n,f$ - измеримы и определены на множестве конечной меры $X$. Тогда $\forall\ \varepsilon >0\ \exists\ X_\delta \subseteq X:\ \mu(X\setminus X_\delta)$, такое, что $f_n\rightrightarrows f$ на $X_\delta$.
+ \item[Теорема Лузина.] Функция $f(x)$ измерима на $[a,b]$ тогда и только тогда, когда $\forall\ \varepsilon >0\ \exists\ \varphi(x)\in C[a,b]$, такая, что $\mu(f(x) \neq \varphi(x)) < \varepsilon$.
+\end{description}
+Далее везде $f,f_n$ - интегрируемые по Лебегу функции.
+\begin{description} 
+\item[Абсолютная непрерывность.] $\forall\ \varepsilon >0\ \exists\ \delta>0:\ \forall\ A,\ \mu(A)< \delta,\  \left|\int\limits_A fd\mu\right| < \varepsilon$.
+ \item[Теорема Лебега.] Пусть $f_n\to f_0$ по мере, и существует интегрируемая $F(x):\ |f_n(x)| \leqslant F(x)$. Тогда $f_0$ интегрируема, и $\lim\limits_{n\to\infty}\int f_nd\mu\to\int fd\mu$.
+ \item[Теорема Леви.] Пусть выполнены следующие требования:
+ \begin{enumerate}
+  \item $f_n \leqslant f_{n+1}$ для любого $n$;
+  \item $\int f_n d\mu \leqslant C$ для любого $n$;
+  \item Почти всюду существует конечный или бесконечный предел $\lim\limits_{n\to\infty}f_n(x) = f_0(x)$.
+ \end{enumerate}
+Тогда:
+\begin{enumerate}
+ \item $f_0$ - интегрируема.
+ \item $\int f d\mu \leqslant C$.
+ \item $\lim\limits_{n\to+\infty}\int f_nd\mu = \int f_0 d\mu$.
+\end{enumerate}
+ \item[Теорема Фату.] Пусть $f_n \geqslant 0$, $f_n\to f_0$ почти всюду, и $\int f_n d\mu \leqslant C$. Тогда $f_0$ интегрируема, и $\int fd\mu \leqslant C$.
+ \item[Тоерема Фубини.] Пусть $f(x,y)$ интегрируема по произведению мер $\mu_X\times\mu_Y$ на пространстве $X\times Y$. Тогда для почти любого $x$ $f(x,\cdot)$ измерима по $\mu_Y$, и
+$$
+\iint\limits_{X\times Y} f d (\mu_X\times\mu_Y) = \int\limits_X\int\limits_Y f(x,y) d\mu_Y d\mu_X = \int\limits_Y\int\limits_X f(x,y) d\mu_X d\mu_Y.
+$$
+\end{description}
+\section{Выпуклый анализ}
+В этом разделе через $\Omega(\bbr^n)$ обозначено множество всех непустых компактов в $\bbr^n$, а через $\conv(\bbr^n)$ --- множества всех непустых выпуклых компактов в $\bbr^n$.
+\subsection{Опорные функции}
+\textit{Опорной функцией} ограниченного множества $F\subseteq \bbr^n$ называется функция 
+$$
+\rho(l,F) = \sup\limits_{f\in F}\scalar{f}{l}.
+$$
+Она обладает следующими свойствами:
+\begin{enumerate}
+ \item $F\in\Omega(\bbr^n)\ \Rightarrow\ \rho(l,F) = \max\limits_{f\in F}\scalar{f}{l}$.
+ \item $\rho(l,F) = \rho(l,\overline{F}) = \rho(l,\conv(F))$.
+ \item $\rho(\lambda l,F) = \lambda\rho(l,F)$ при $\lambda \geqslant 0$.
+ \item $\rho(l_1 + l_2,F) \leqslant \rho(l_1,F) + \rho(l_2,F)$.
+ \item $|\rho(l_1,F) - \rho(l_2,F)| \leqslant |F|\norm{l_1-l_2}$.
+ \item $\rho(l, DF) = \rho(D^Tl,F)$, где $D\in\bbr^{n\times n}$.
+ \item $\rho(l,\lambda_1F_1 + \lambda_2F_2) = \lambda_1\rho(l,F_1) + \lambda_2\rho(l,F_2),$ при $\lambda_{1,2} \geqslant 0$.
+ \item $\rho(l,F_1\cup F_2) = \max\{\rho(l,F_1),\rho(l,F_2)\}$.
+ \item Если $|F_\lambda| \leqslant R\ \forall\ \lambda\in\Lambda$, то $\rho(l,\cup_{\lambda\in\Lambda}F_\lambda) = \sup\limits_{\lambda\in\Lambda}\rho(l,F_\lambda)$.
+ \item Если $F_1,F_2\in\Omega(\bbr^n)$, то $F_1 \subset F_2\ \Rightarrow\ \rho(l,F_1) \leqslant\rho(l,F_2)\ \forall\ l\in\bbr^n$.
+ \item Если $F_1,F_2\in\conv(\bbr^n)$, то $F_1 \subset F_2\ \Leftrightarrow\ \rho(l,F_1) \leqslant\rho(l,F_2)\ \forall\ l\in\bbr^n$.
+ \item Если $F_1,F_2\in\Omega(\bbr^n)$, то $F_1 \cap F_2\neq\varnothing \Rightarrow\ \rho(l,F_1) + \rho(l,F_2) \geqslant 0\ \forall\ l\in\bbr^n$.
+ \item Если $F_1,F_2\in\conv(\bbr^n)$, то $F_1 \cap F_2\neq\varnothing \Leftrightarrow\ \rho(l,F_1) + \rho(l,F_2) \geqslant 0\ \forall\ l\in\bbr^n$.
+ \item Если $F_1,F_2\in\conv(\bbr^n)$, то $d(F_1,F_2) = \sup\limits_{\norm{l} \leqslant 1}(-\rho(-l,F_1)-\rho(l,F_2))$.
+ \item Если $F_1,F_2\in\conv(\bbr^n)$, то $d^2(F_1,F_2) = \sup\limits_{\norm{l}} -\rho(l,F_1) - \rho(l,F_2) - \frac{1}{4}\scalar{l}{l})$.
+ \item Если $F_1,F_2\in\Omega(\bbr^n)$, то\footnote{Здесь $h(\cdot,\cdot)$ -- расстояние Хаусдорфа.} $h(F_1,F_2) = \sup\limits_{\norm{l} \leqslant 1}|\rho(l,F_1) - \rho(l,F_2)|$.
+ \item (\textit{Теорема о супремуме и интеграле.}) Пусть $\mathcal{P}$ - некоторое множество интегрируемых функций, принимающих значения в $U\in\Omega(\bbr^n)$, $D(s)\in\bbr^{n\times n}$ - непрерывна. Тогда $\rho\left(l, \int_{t_0}^{t}D(s)\mathcal{P}ds\right) = \int_{t_0}^{t}\rho(l,D(s)U)ds.$
+\end{enumerate}
+\subsection{Сопряженные функции}
+\textit{Сопряженной (по Фенхелю)} к функции $f$ называется функция $f^*(y) = \sup\limits_{x}(\scalar{y}{x} - f(x))$. Она обладает следующими свойствами:
+\begin{enumerate}
+ \item  $f^*(y)$ выпукла и замкнута;
+ \item \textit{(неравенство Юнга-Фенхеля)} $f^*(y) + f(x) \leqslant \scalar{x}{y}\ \forall\ x,y$.
+ \item $f^{**}(x) \leqslant f(x)\ \forall\ x$.
+ \item \textit{(теорема Фенхеля-Моро)} Если $f$ выпуклая, собственная и замкнутая, то $f^*$ собственна и $f^{**} = f$.
+\end{enumerate}
+\subsection{Смежные вопросы}
+\textbf{Теорема о дифференцировании максимума.} Пусть $D$ --- область в $\bbr ^n$, $N$ --- компактное метрическое пространство, $F(x,y): D\times N \to\bbr$ и $W(x) = \max\limits_{y\in N}F(x,y)$. Тогда для любого $x\in D,$ любого направления $\alpha \in \bbr^n$, существует производная по направлению функции максимума, причем
+$$
+\dfrac{dW}{d\alpha} = \max\limits_{y\in \Argmax \limits_{y\in N}F(x,y)} \scalar{\alpha}{F'_x(x,y)}.
+$$
+
+\textbf{Теорема о минимаксе (общий случай).} Пусть $X,Y$ --- гильбертовы пространства, $M\subseteq X$ --- выпуклое замкнутое множество, $N\subseteq Y$ --- выпуклое множество, $f(x,y)$ выпуклая по $x$, собственная, замкнутая при фиксированном $y$ и вогнутая по $y$ при фиксированном $x$, причем $\dom f(\cdot,y)\cap M\neq \varnothing$ при всех $y\in N$ и функция $g(x^*) = \inf\limits_{y\in N}\sup\limits_{x\in M}(\scalar{x^*}{x} - f(x,y))$ кончена и полунепрерывна снизу при $x^* = 0$. Тогда:
+$$
+\inf\limits_{x\in M}\sup\limits_{y\in N}f(x,y) = \sup\limits_{y\in N}\inf\limits_{x\in M}f(x,y).\ \ (1)
+$$
+\textbf{Теорема о минимаксе (частный случай).} Пусть $N$ --- выпуклый компакт, $f(x,y)$ -- выпукла, замкнута и собственна по $x$ при фиксированном $y$, и замкнутая и вогнутая по $y$ при всех $x$. Пусть, к тому же,  $g(0)\neq \pm\infty$. Тогда верно (1).
+\section{Принцип максимума Понтрягина}
+Рассматривается задача: 
+$$
+\begin{cases}
+J(x(\cdot),u(\cdot)) = \int\limits_{t_0}^{t_1}f(t,x(t),u(t))dt + \psi_0(x(t_0),x(t_1)) \to\min,\\
+\dot{x} = \varphi(t,x,u),\\
+u(t)\in U(t)\ \dot{\forall}\ t\in[t_0,t_1],\\
+\psi_1(x(t_0),x(t_1)) \leqslant 0,\\
+\psi_2(x(t_2),x(t_1)) = 0.
+\end{cases}
+$$
+Здесь имеется $k_1$ ограничений типа неравенств и $k_2$ ограничений типа равенств. Управления расматриваются $r$-значные из класса $L_\infty$. Введем функцию Гамильтона-Понтрягина:
+$$
+H(t,x,u,p,\lambda_0) = p\varphi(t,x,u) - \lambda_0 f(t,x,u),
+$$
+а также малый лагранжиан:
+$$
+l(x_0,x_1,\lambda) = \lambda_0\psi_0(x_0,x_1) + \lambda_1\psi_1(x_0,x_1) + \lambda_2\psi_2(x_0,x_1).
+$$
+Тогда верен принцип максимума Понтрягина:
+
+\textbf{Теорема.} Пусть $(\hat{x}(\cdot), \hat{u}(\cdot))$ --- оптимальная пара в нашей задаче и выполнены следующие условия:
+\begin{enumerate}
+ \item Для почти любого $t$ функции $f,\varphi$ непрерывны по $(x,u)$ и непрерывно---дифференцируемы по $x$;
+ \item Для любых $(x,u)$ функции $f,\varphi$ измеримы по $t$;
+ \item Функции $f,\varphi$ и их частные производные по $x$ ограничены на любом ограниченном подмножестве $\bbr^{1+n+r}$;
+ \item $\psi_i,\ i=0,1,2$ непрерывны в окрестности точки $(\hat{x}(t_0),\hat{x}(t_1))$ и дифференцируемы в ней;
+ \item Многозначное отображение $U(t)$ непрерывно.
+\end{enumerate}
+ Тогда найдутся ненулевой вектор $\lambda= (\lambda_0,\lambda_1,\lambda_2)$, где $\lambda_1,\lambda_2 \geqslant 0$, и абсолютно-непрерывная вектор-функция $p(\cdot)$, такие, что что верно:
+\begin{enumerate}
+ \item $\dot{p}(t) = \lambda_0\hat{f}_x(t)$ ($p$ удовлетворяет сопряженной системе);
+ \item $p(t_i) = (-1)^il_{x_i}(\hat{x}(t_0),\hat{x}(t_1),\lambda),\ i =0,1$ (условие трансверсальности);
+ \item $\max\limits_{u\in U(t)}H(t,\hat{x}(t),u,p(t),\lambda_0) = H(t,\hat{x}(t),\hat{u}(t),p(t),\lambda_0)$ (условие максимума);
+ \item $\lambda_1\psi_1(\hat{x}(t_0),\hat{x}(t_1)) = 0$ (условие дополняющей нежесткости);
+ \item Если, помимо того, функции $f,\varphi$ непрерывно-дифференцируемы по совокупности переменных и отображение $U(t)$ постоянно, то для почти любых $t\in[t_0,t_1]$ выполнено: $\hat{H}'(t) = \hat{H}_t(t)$. В частности, если задача автономна, то $H$ сохраняет свое значение вдоль оптимальной пары.
+\end{enumerate}
+
+\end{document}

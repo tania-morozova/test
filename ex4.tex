@@ -1,0 +1,132 @@
+\documentclass{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[cp1251]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{amsthm}
+\usepackage{a4wide}
+
+\usepackage{inputenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\usepackage{graphicx,color}
+\usepackage{amsfonts}
+\textwidth=150mm
+\textheight=230mm
+\voffset=-15mm
+\hoffset=-5mm
+
+\begin{document}
+
+\section{Постановка задачи}
+
+    Задана линейная система дифференциальных уравнений:
+    \begin{equation}
+        \label{pz_1}
+        \dot x = A(t)x+Bu + f(t), t \in [t_0, +\infty]
+    \end{equation}
+
+    Здесь $x$, $f(t) \in \mathbb{R}^2$, $A(t) \in \mathbb{R}^{\rm 2x2}$, $B \in \mathbb{R}^{\rm 2x2}$, $u \in \mathbb{R}^2$. На значения управляющих параметров $u$ наложено ограничение $u \in \mathcal{P}$. Пусть $\mathcal{X}_0$ -- начальное множество значений фазового вектора, $\mathcal{X}_1$ -- целевое множество значений фазового вектора. Необходимо решить задачу быстродействия, т.е. найти минимальое время ${T > 0}$, за которое траектория системы, выпущенная в момент времени $t_0$ из некоторой точки множества $\mathcal{X}_0$, может попасть в некоторую точку множества $\mathcal{X}_1$.
+
+    $$\mathcal{P} \mbox{-- шар радиуса } {r > 0} \mbox{, с центром в точке } p$$
+    $$\mathcal{X}_0 = \{x_0\}$$
+    $$\mathcal{X}_1\mbox{-- шар радиуса } {q > 0} \mbox{, с центром в точке } x_1$$
+
+    \begin{enumerate}
+        \item Необходимо написать в среде MatLab программу с  пользовательским интерфейсом, которая по заданным параметрам $A(\cdot)$, $B$, $f(\cdot)$, $t_0$, $r$, $p$, $x_0$, $q$, $x_1$ определяет, разрешима ли задача быстродействия. Если задача  разрешима, то программа должна приближенно найти значение $T$, построить графики компонент оптимального управления, компонент оптимальной траектории, сопряженных переменных.
+        \item В соответствующем заданию отчете необходимо привести все теоретические выкладки, сделанные в ходе решения задачи оптимального управления, привести примеры построенных оптимальных управлений и траекторий (с иллюстрациями).  Необходимо также исследовать задачу быстродействия на непрерывность величины $T$ по начальному (целевому) вектору фазовых переменных.
+        \end{enumerate}
+
+\newpage
+\section{Теоретические выкладки}
+\subsection{Принцип максимума Понтрягина}
+
+    Рассмотрим линейную задачу быстродействия
+    $$\dot x = Ax + u, \quad t \in [t_0, t_1], $$
+    $${x(t_0) \in \mathcal{X}_0},\quad {x(t_1) \in \mathcal{X}_1},$$
+    $$u \in \mathcal{P}$$
+    $${t_1-t_0 \to inf}.$$
+\\[5pt]
+    Пара ${(x(t), u(t))}$ называется решением линейной задачи быстроедействия, если
+    $$\dot x = Ax + u, \mbox{ для почти всех } t \in [t_0, t_1], $$
+    $${x(t_0) \in \mathcal{X}_0},\quad {x(t_1) \in \mathcal{X}_1},\quad u \in \mathcal{P}$$
+    $$ {t_1-t_0 = min}.$$
+\\[5pt]
+    Говорят, что пара ${(x(t), u(t))}$ удовлетворяет принципу максимума Понтрягина, если существует такая сопряженная переменная $\psi(t)$ (ненулевое решение сопряженного уравнения $\dot\psi = -A^*\psi$), что выполнены следующие условия:
+    \begin{enumerate}
+        \item ${\left<u(t), \psi(t)\right> = c(\mathcal{P}, \psi(t))}$ для почти всех ${t \in [t_0, t_1]}$ (условие максимума),
+        \item ${\left<x(t_0), \psi(t_0)\right> = c(\mathcal{X}_0, \psi(t_0))}$ (условие трансверсальности на множестве $\mathcal{X}_0$),
+        \item ${\left<x(t_1), -\psi(t_1)\right> = c(\mathcal{X}_1, -\psi(t_1))}$ (условие трансверсальности на множестве $\mathcal{X}_1$).
+    \end{enumerate}
+%\\[5pt]
+    \newtheorem{theor}{Теорема}
+    \begin{theor}
+         Если пара ${(x(t), u(t))}$, ${t_0 \leq t \leq t_1}$, является решением линейной задачи быстродействия, то эта пара удовлетворяет принципу максимума Понтрягина на отрезке $[t_0, t_1]$
+    \end{theor}
+%\\[9pt]
+\subsection{Применение принципа максимума к конкретной постановке задачи}
+    Для решения при помощи принципа максимума Понтрягина преобразуем задачу к виду
+    $$ \dot x = A(t)x+v, t \in [t_0, +\infty],$$
+    $$ v \in B\mathcal{P} + \{f\}.$$
+    Применим принцип максимума к изменённой системе
+    $${\left<v(t), \psi(t)\right> = \left<Bu(t) + f(t), \psi(t)\right> = c(B\mathcal{P} + \{f\}, \psi)}$$
+    $${\left<Bu, \psi\right> + \left<f, \psi\right> = c(\mathcal{P}, B^*\psi) + \left<f, \psi\right>}$$
+    Из ограничений на ${\mathcal{P}}$ следует, что
+    $${ \left<u, B^*\psi\right> = r||B^*\psi|| + \left<p, B^*\psi\right>,}$$
+    откуда получим, что
+%    \begin{equation}
+%        \label{optupr}
+     $$   u(t) = r\frac{B^*\psi(t)}{||B^*\psi(t)||} + p.$$
+%    \end{equation}
+
+    Далее из исходного уравнения (\ref{pz_1}) по найденому управлению $u(t)$ получим $x(t)$.
+
+\subsection{Схема решения задачи оптимального управления}
+    Для нахождения оптимального управления решаем уравнение $$\dot\psi = -A^*\psi$$ с набором начальных условием $$\psi_0^i = \left(\cos(\frac{2\pi i}{N}), \sin(\frac{2\pi i}{N})\right), \quad {i = \overline{1, {N-1}}}$$, по которым будем вести перебор в нашей программе. Получим, что $\varepsilon_0 <  \frac{2\pi}{N}$, -- погрешность начального значения $\psi(0)$;
+
+    Для каждого $\psi^i(t)$ находим с управление,равное
+    $$u^i(t) = r\frac{B^*\psi^i(t)}{||B^*\psi^i(t)||} + p$$
+    из которого, решив исходное дифференциальное уравнение находим траекторию 
+    $$x^i(t) = \int\limits_{t_0}^{t_1}\left(A(t)x(t)+Bu^i(t)+f(t)\right)dt+x_0$$
+    Если ни одна из траекторий $x^i(t)$ не пересечет множество $\mathcal{X}_1$ за время $[t_0, t_1]$, то задача управления с заданными параметрами не разрешима. Иначе находим первый момент $t_*^i$, когда $x^i(t_*) \in \mathcal{X}_1$, $t_* \in [t_0, t_1]$. $t_* = \min{t_*^i}$ будет являться временем быстроействия. Соответствующие $t_*$ траектория $x(t)$ и управление $u(t)$ будут являться оптимальными.
+
+\subsection{Оценка погрешности вычислений}
+    \subsubsection{Погрешность вычисления $\psi(t)$}
+        Учитывая то, что дифференциальные уравнения для $\psi(t)$ решаются численно при помощи функции ode45 с задаваемыми пользователем параметрами точности AbsTol и RelTol, ясно, что если $\varepsilon_k$ - погрешность вычисления на ${k-}$м шаге, то
+        $$\varepsilon_{k+1} \le \varepsilon_k||A^*(t)||\Delta t + \varepsilon,$$
+        $$\varepsilon = \min(AbsTol, ||\psi(t)||RelTol)$$
+        Начальное условие выбрано с точностью $\varepsilon_0 < \frac{2\pi}{N}$, а максимальный шаг ${\Delta t{A^*_m} < 0.5},\quad{{A^*_m} = \max\limits_{t}^{}||A^*(t)||}$, то погрешность на любом шаге не превосходит
+        $$|\psi(t)-\tilde\psi(t)|\leq{(\varepsilon + \varepsilon_0)(1 + \Delta tA^*_m + (\Delta tA^*_m)^2 + ...) = \frac{\varepsilon + \varepsilon_0}{1 - \Delta tA^*_m}} < 2{(\varepsilon + \varepsilon_0)}$$
+    \subsubsection{Погрешность вычисления $x(t)$}
+        Для погрешности вычисления $x(t)$ рассуждения аналогичны за исключением того, что $\varepsilon_0 = 0$, так как погрешность в выборе начального условия отсутствует, то есть погрешность в вычислении $x(t)$ не превосходит
+        $$|x(t)-\tilde x(t)|\leq{\varepsilon (1 + \Delta tA_m + (\Delta tA_m)^2 + ...) = \frac{\varepsilon }{1 - \Delta tA_m}} < 2\varepsilon$$
+        $$A_m = \max\limits_{t}^{}||A(t)||,\quad {\Delta t{A^*_m} < 0.5}$$
+    \subsubsection{Погрешность выполнения условия трансверсальности}
+        Так как начальное множество $mathcal{X}_0$ является точкой, условие трансверсальности на левом конце выполняется автоматически. Рассчитаем погрешность условия трансверсальноти на правом конце.
+        $$|<\tilde x(t_1),-\tilde\psi(t_1)>-c(\mathcal{X}_1, -\tilde\psi(t_1))| \leq |<\tilde x(t_1),-\tilde\psi(t_1)>-<x(t_1),-\psi(t_1)>|+$$
+        $$+|< x(t_1),-\psi(t_1)>-c(\mathcal{X}_1, -\psi(t_1))|+|c(\mathcal{X}_1, -\psi(t_1))-c(\mathcal{X}_1, -\tilde\psi(t_1))|$$
+        Согласно условию трансверсальности $|{\left<x(t_1), -\psi(t_1)\right> - c(\mathcal{X}_1, -\psi(t_1))}| = 0$
+        Вычислим остальные слагаемые
+        $$ |<\tilde x(t_1),-\tilde\psi(t_1)>-<x(t_1),-\psi(t_1)>|\leq |\tilde x^1(t_1)\tilde\psi^1(t_1)>-<x^1(t_1)\psi^1(t_1)>|+$$
+        $$+|<\tilde x^2(t_1)\tilde\psi^2(t_1)>-<x^1(t_1)\psi^2(t_1)>| \leq |x^1(t_1)(\psi^1(t_1)-\tilde\psi^1(t_1))|+ $$
+        $$+|\tilde\psi^1(t_1)(x^1(t_1)-\tilde x^1(t_1))| + |x^2(t_1)(\psi^2(t_1)-\tilde\psi^2(t_1))|+ |\tilde\psi^2(t_1)(x^1(t_1)-\tilde x^2(t_1))| \leq$$
+        $$\leq (x_1^1+x_1^2+2r)\frac{\varepsilon + \varepsilon_0}{1 - \Delta tA^*_m} + \psi(t_1)\frac{\varepsilon }{1 - \Delta tA_m}$$
+        
+        $$|c(\mathcal{X}_1, -\psi(t_1))-c(\mathcal{X}_1, -\tilde\psi(t_1))| \leq q|\psi(t_1)-\tilde\psi(t_1)| \leq q\frac{\varepsilon + \varepsilon_0}{1 - \Delta tA^*_m}$$
+        
+        Получим
+        $$|<\tilde x(t_1),-\tilde\psi(t_1)>-c(\mathcal{X}_1, -\tilde\psi(t_1))| \leq (x_1^1+x_1^2+2r+q)\frac{\varepsilon + \varepsilon_0}{1 - \Delta tA^*_m} + \psi(t_1)\frac{\varepsilon }{1 - \Delta tA_m}$$
+        
+%        2\frac{\varepsilon(\varepsilon+\varepsilon_0)}{(1-\Delta tA_m)(1-\Delta tA_m^*)}+q\frac{\varepsilon + \varepsilon_0}{1 - \Delta tA^*_m}} \leq 2(varepsilon+varepsilon_0)(2\varepsilon+1)$$
+
+
+
+\newpage
+\begin{thebibliography}{9}
+\bibitem{lek} {\it Рублев~И.~В.} {\rm Лекции по курсу ``Оптимальное управление. Линейные системы''}
+\bibitem{kiselev} {\it Киселев Ю.Н.} {\rm ``Оптимальное управление''. М.: Издательский отдел факультета ВМиК МГУ, 1988~г.}
+\end{thebibliography}
+
+\end{document}
